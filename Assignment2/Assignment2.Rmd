@@ -1,0 +1,80 @@
+---
+title: 'DATA 607 Assignment #2'
+author: "Anthony Conrardy"
+date: "2024-02-04"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tinytex)
+library(RMySQL)
+library(expss)
+library(DT)
+```
+
+## Overview
+
+This is Assignment #2 for DATA 607.  For this particular assignment I chose to create some of the data that will be used in this project by randomly assigning values for the movie ratings, as well as missing data, for ten (10) participants.  The data set is available on GitHub at:
+
+https://github.com/Aconrard/DATA607/blob/main/Assignment2/movies_ratings.csv
+
+The database for this assignment is located on Azure in an accessible database.  The next code chunk with  access the database from a server, and then we will access the required table from database for further analysis.  This also requires the person using this Markdown to know the external database log on credentials.  This will be provided in the comment sections of the submission on Blackboard.
+
+```{r}
+username <- rstudioapi::askForPassword("Database username")
+passworda <- rstudioapi::askForPassword("Database password")
+```
+
+
+```{r}
+mydb <- dbConnect(MySQL(), user = username, password = passworda, dbname = 'movie_ratings', host = "data607b.mysql.database.azure.com")
+```
+
+
+```{r}
+mrs <- dbReadTable(mydb, "movies_ratings")
+
+mrs
+```
+
+### Missing Data
+
+You will notice that some of the rows are missing data, which is logical since some people did not see all seven(7) movies.  Using a form survey limits the values associated with a Likert Scale question, and those that did not get rated are simply given a default value.  However, that default value may vary from platform to platform, so we must be know hoe the values are selected.  In this case, the missing data is denoted by "-", but that is something that R does not recognize.  Therefore, we must alter those entries into something recognizable as missing in R.
+
+There may be other characters that are not recognizable, or that need to be changed.  However, this example has only one and we are able to replace all values of "-" with NA with the following code chunk.
+
+```{r}
+mrs[mrs == '-'] <- 'NA'
+mrs
+```
+
+### Reviewing Data
+
+A look at the data after we handle the missing entries shows that while some of the movies have very few missing ratings, others have significantly more.  So we should conduct a summary of the ratings for each movie and see what happens.
+
+```{r}
+summary(mrs)
+```
+
+We now note that the data type for the variables are listed as characters making an analysis of the ratings difficult for most of the movies.  The Marvels has a proper summary because it did not have any missing values and was identified as numeric.  We also note that the person variable was identified as a numeric type and was analyzed as such. However, the others need to be adjusted accordingly.  We can do that with the following code chunk and then run the summary again.
+
+```{r, warning=FALSE}
+mrs$person <- as.character(mrs$person)
+mrs$aquaman <- as.numeric(mrs$aquaman)
+mrs$equalizer3 <- as.numeric(mrs$equalizer3)
+mrs$dune_part_2 <- as.numeric(mrs$dune_part_2)
+mrs$wonka <- as.numeric(mrs$wonka)
+mrs$pawpatrol <- as.numeric(mrs$pawpatrol)
+mrs$haunted_mansion <- as.numeric(mrs$haunted_mansion)
+mrs$tmnt <- as.numeric(mrs$tmnt)
+mrs$marvels <- as.numeric(mrs$marvels)
+summary(mrs, na.rm = TRUE)
+```
+### Conclusion
+
+While this was an exercise of some of the most basic functions, we were able to access a database from an external Azure connection through R, modify the data set to address missing elements, modify the data types to allow for a summary of the various ratings, and secured the password and log on credentials necessary to access the external database.
+
