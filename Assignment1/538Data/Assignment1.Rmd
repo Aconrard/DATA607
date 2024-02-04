@@ -1,0 +1,70 @@
+---
+title: 'DATA 607 Assignment #1'
+author: "Anthony Conrardy"
+date: "2024-02-03"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tinytex)
+```
+
+## Overview
+
+This is Assignment #1 for DATA 607.  For this particular assignment I chose to use some of the data that was analyzed in the article "How Americans View Biden's Response to the Coronavirus Crisis".  This was interesting since most of my time was dedicated toward pandemic response and there was definitely a different "feeling" over the time period.  The entire data set is available on GitHUb at
+
+https://github.com/Aconrard/DATA607/tree/e165fe8295d7d2f34b71c9b5f7b60709be831727/Assignment1/538Data
+
+## Introduction
+
+For this analysis, I used the data from the covid_approval_polls table and limited the data results to samples sizes of equal to, or greater than, 600 participants.  600 was chosen as a threshold because the median value of the table was ~590.  I obtained data for both presidents, Biden and Trump, approval ratings (expressed in percentages), and calculated a total percentage column in MySQL. The total percentage is simply a sum of both the approval and disapproval columns and, if the sum is less than 100, one can assume the remaining difference are respondents that indicated "neither approved/disapporved".  The MySQL file and query CSV file are also located on GitHub.  
+
+```{r}
+data_538 <- read.csv("https://raw.githubusercontent.com/Aconrard/DATA607/main/Assignment1/538Data/mysql-query-file-assignment1.csv")
+summary(data_538)
+```
+
+#### Explanation
+
+The start_date is whent the polling was initiated, and not completed, though that data was available.  One can see that the sample sizes in some cases were quite large, with a maximum of 325,970 participants.  The population variable is categorical with A indicating "adults", RV indicating "registered voters", and LV indicating "likely voters".  One can also see that some polls had greater than 100% total of the percentage of respondents approving and disapproving, indicating there may be some potential data discrepancy issues. For our analysis we will be changing those values to "0" to be equivalent with 100%.
+
+```{r}
+data_538 <- data_538 %>%
+  mutate(neither = 100 - total)
+data_538$total[data_538$total >100] <- 100
+data_538$neither[data_538$neither < 0] <- 0
+
+data_538 <- data_538 |> mutate(approve_disapprove_ratio = approve / disapprove)
+
+summary(data_538)
+```
+
+
+## Visualization Exercise
+
+In this section, I will attempt to display the trending of "likely voters" expressed approval and disapproval by filtering that population from the data, and then sequentially numbering the polls in order of start_date.  We will graph the approval/disapproval ratio, which if greater than 1 demonstrates a favorable perception, while a less than 1 ratio a less than favorable outcome.  The plot
+
+```{r results = 'hide'}
+data_538lv <- data_538 |> filter(population == "lv")
+data_538lv |> arrange(start_date)
+data_538lv$numseq <- seq(from = 1, to = nrow(data_538lv), by = 1)
+
+```
+### Graphic Display
+
+```{r}
+ggplot(data_538lv, aes(x=numseq, y=approve_disapprove_ratio)) + geom_point(aes(color=candidate, shape=candidate)) + geom_smooth(method = "lm") + facet_wrap(~candidate) + labs(
+  title = "Approval/Disapproval Ratio Among Likely Voters",
+  subtitle = "Presidential Trending",
+  x = "Sequential Polling" ,
+  y = "Approval/Disapproval Ratio"
+)
+```
+
+## Conclusion
+
+While we can see a more favorable ratio for President Biden than President Trump, we can also see a significantly steeper decline in the ratio over a shorter period of time.  Also, there were significantly more polls of likely voters during President Trumps term in office leading up to the 2020 elections.  After the elections, polling of likely voters decreased significantly leading to a wider confidence area associated with the trend line.
+
+In a future analysis we can compare results among the other voter populations, as well as consider political leanings of the pollsters, to see if the results differ.
