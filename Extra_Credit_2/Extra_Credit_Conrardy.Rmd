@@ -1,0 +1,121 @@
+---
+title: 'Extra Credit Assignment #2'
+author: "Anthony Conrardy"
+date: "2024-02-17"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidyr)
+library(tinytex)
+```
+
+### Assignment Basis
+
+Based on difference in ratings between the chess players and each of their opponents in our Project 1 tournament, calculate each player’s expected score (e.g. 4.3) and the difference from their actual score (e.g 4.0).  List the five players who most over performed relative to their expected score, and the five players that most under performed relative to their expected score.  It should be noted that while the Elo equation will be used here, it will function as a predictor of success for each match played, but will not be individually applied to alter a rating after each match  The cited source for the equation used can be found at:
+
+Glickman, M. E., & Jones, A. C. (1999). Rating the chess rating system. CHANCE-BERLIN THEN NEW YORK-, 12, 21-28
+
+Formula use is in the form of:
+
+Ea =  1/(1 + 10)^(Rb−Ra)/400, where Ea is the probability of winning a particular match against opponent b, using the pre-tournament ratings of both player a and b.
+
+The expected score for the tournament then becomes the sum of the probabilities for each match played.
+
+PP = Ea1 + Ea2 + ...... Ea7, PP is predicted points.
+
+We will then find the participants where the actual points were greater than predicted (over performed), identify those where the actual points were less than predicted (under performed), and identify the top five (5) in each of those categories. 
+
+We will first read in a CSV file that was created during Project 1 that has the necessary information to calculate the top five (5) participants who over performed and the five (5) participants who under performed.  We will also clean up the data frame by removing some unnecessary variables for this assignment.
+
+```{r chess}
+extra_credit <- read.csv(file = "C:/Users/para2/Documents/R_Working_Directory/pittsburgh+bridges/Project 1/extra_credit.csv")
+extra_credit1 <- extra_credit[, c("player_number", "player_name", "total_points", "player_state", "pre_rating", "rnd1_rating", "rnd2_rating", "rnd3_rating", "rnd4_rating", "rnd5_rating", "rnd6_rating", "rnd7_rating")]
+head(extra_credit1,5)
+```
+
+### Creating New Column Variables
+
+Before we begin to calculate the probability of a match being won by a participant, we need to find the difference between their pre-tournament ratings for each match.  We will do that by creating a "difference" column for each match played and then divide that number by 400 to match the formula input.
+
+```{r}
+extra_credit1 <-  extra_credit1 |> mutate(rnd1_diff = (rnd1_rating - pre_rating) / 400,
+                        rnd2_diff = (rnd2_rating - pre_rating) / 400,
+                        rnd3_diff = (rnd3_rating - pre_rating) / 400,
+                        rnd4_diff = (rnd4_rating - pre_rating) / 400,
+                        rnd5_diff = (rnd5_rating - pre_rating) / 400,
+                        rnd6_diff = (rnd6_rating - pre_rating) / 400,
+                        rnd7_diff = (rnd7_rating - pre_rating) / 400)
+extra_credit1 <- extra_credit1 |> relocate(contains("diff"), .before = pre_rating)
+```
+
+We will now complete the calculations necessary to determine the probability of winning for each round.
+```{r}
+extra_credit1 <- extra_credit1 |> mutate(power_raise_1 = 10 ^ rnd1_diff,
+                        power_raise_2 = 10 ^ rnd2_diff,
+                        power_raise_3 = 10 ^ rnd3_diff,
+                        power_raise_4 = 10 ^ rnd4_diff,
+                        power_raise_5 = 10 ^ rnd5_diff,
+                        power_raise_6 = 10 ^ rnd6_diff,
+                        power_raise_7= 10 ^ rnd7_diff)
+extra_credit1 <- extra_credit1 |> relocate(contains("raise"), .before = rnd1_diff)
+```
+Here is where we complete the probability of winning each round.
+```{r}
+extra_credit1 <-  extra_credit1 |> mutate(prob_1 = 1 / (1 + power_raise_1),
+                        prob_2 = 1 / (1 + power_raise_2),
+                        prob_3 = 1 / (1 + power_raise_3),
+                        prob_4 = 1 / (1 + power_raise_4),
+                        prob_5 = 1 / (1 + power_raise_5),
+                        prob_6 = 1 / (1 + power_raise_6),
+                        prob_7 = 1 / (1 + power_raise_7))
+extra_credit1 <- extra_credit1 |> relocate(contains("prob"), .before = power_raise_1)
+```
+
+Now we have to conduct a little housekeeping.  There were rounds where a participant did not actually play an opponent.  This resulted in an NA being passed through all the calculations and now exist in the probability scores.  We need to now convert them to zeroes to be summed for the final predicted score, and then add up the probabilities for that predicted score.
+```{r}
+mv1 <- ifelse(is.na(extra_credit1$prob_1), 0, extra_credit1$prob_1 )
+extra_credit1$prob_1 <- mv1
+mv2 <- ifelse(is.na(extra_credit1$prob_2), 0, extra_credit1$prob_2 )
+extra_credit1$prob_2 <- mv2
+mv3 <- ifelse(is.na(extra_credit1$prob_3), 0, extra_credit1$prob_3 )
+extra_credit1$prob_3 <- mv3
+mv4 <- ifelse(is.na(extra_credit1$prob_4), 0, extra_credit1$prob_4 )
+extra_credit1$prob_4 <- mv4
+mv5 <- ifelse(is.na(extra_credit1$prob_5), 0, extra_credit1$prob_5 )
+extra_credit1$prob_5 <- mv5
+mv6 <- ifelse(is.na(extra_credit1$prob_6), 0, extra_credit1$prob_6 )
+extra_credit1$prob_6 <- mv6
+mv7 <- ifelse(is.na(extra_credit1$prob_7), 0, extra_credit1$prob_7 )
+extra_credit1$prob_7 <- mv7
+
+extra_credit1 <-  extra_credit1 |> mutate(pred_score = round((prob_1 + prob_2 + prob_3 + prob_4 + prob_5 + prob_6 + prob_7), digits=2))
+extra_credit1 <- extra_credit1 |> relocate(contains("pred_score"), .before = prob_1)
+
+extra_credit1 <- extra_credit1 |> mutate(performance = total_points - pred_score)
+extra_credit1 <- extra_credit1 |> relocate(contains("player_state"), .before = total_points)
+extra_credit1 <- extra_credit1 |> relocate(contains("performance"), .before = prob_1)
+```
+
+## Results
+
+We can now get the final results needed to answer the questions of who were the participants that over performed and under during this tournament.
+
+### Top 5 Over Performing Participants
+```{r}
+performance <- extra_credit1[,c("player_number", "player_name", "player_state", "performance", "pred_score", "total_points")]
+top_perf <- performance |> arrange(desc(performance))
+head(top_perf,5)
+```
+
+### Top 5 Under Performing Participants
+```{r}
+under_perf <- performance |> arrange(performance)
+head(under_perf,5)
+```
+
+
