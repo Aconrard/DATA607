@@ -3,14 +3,14 @@ title: 'Extra Credit Assignment #2'
 author: "Anthony Conrardy"
 date: "2024-02-17"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+library(knitr)
 library(tidyverse)
-library(tidyr)
 library(tinytex)
 ```
 
@@ -22,7 +22,7 @@ Glickman, M. E., & Jones, A. C. (1999). Rating the chess rating system. CHANCE-B
 
 Formula use is in the form of:
 
-Ea =  1/(1 + 10)^(Rb−Ra)/400, where Ea is the probability of winning a particular match against opponent b, using the pre-tournament ratings of both player a and b.
+Ea =  1/(1 + 10)^(Rb-Ra)/400, where Ea is the probability of winning a particular match against opponent b, using the pre-tournament ratings of both player a and b.
 
 The expected score for the tournament then becomes the sum of the probabilities for each match played.
 
