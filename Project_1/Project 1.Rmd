@@ -1,0 +1,217 @@
+---
+title: 'Project #1'
+author: "Anthony Conrardy"
+date: "2024-02-10"
+output:
+  html_document: default
+  pdf_document: default
+---
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#library(DT)
+library(tidyverse)
+library(tidyr)
+library(stringr)
+```
+## Chess Tournament File
+
+We will pull in the Chess Tournament Results table from the text file to begin manipulating the structure to create the proposed CSV file to be imported into a SQL database. Once loaded we can view the structure of the results and plan a way to extract the data for our CSV file.  According to the Project 1 Assignment directions, we will need the following data elements: Player's Name, Player's State, Total Number of Points, Player's Pre-Rating and Average Pre Chess Rating of Opponents.
+
+```{r echo=FALSE}
+# Place file in working directory
+tdr <- "Tournament_results.txt"
+tdr1 <- file(tdr, open = "r")
+tdr2 <- readLines(tdr, warn = FALSE)
+head(tdr2, 10)
+```
+## Tournament Results Table Review
+
+This results table appears to be very complex in structure.  The headers take up two lines, and the data is not easily discernible from the header information.
+
+Looking at the first entry (Gary Hua), in the first column we have the players number above what appears to be the state abbreviation. In the second column the players name, USCF ID number and pre- and post ratings are listed.  The third column contains the total points and another abbreviation and number with unexplained significance.  The fourth through tenth columns contain information on the round, whether the person won, lost, or draw, and against which opponents.
+
+There are some issues that we need to immediately address.  The dashed lines need to be removed, which are created with hyphens.
+```{r echo=FALSE}
+tdr3 <- str_replace_all(tdr2,"-","")
+head(tdr3, 10)
+```
+However, after running this code we see that it changes the symbol that they were using to show an increase in ratings from -> to just >.  The -> also looks exactly the same as the assignment operator, so changing that first before removing the hyphens is probably a better idea.
+
+```{r echo=FALSE}
+tdr3 <- str_replace_all(tdr2, "->", "=>")
+tdr4 <- str_replace_all(tdr3, "-", "")
+head(tdr4,10)
+```
+
+We can now remove the first four (4) rows, since they contain the old headers and empty lines.
+
+```{r echo=FALSE}
+tdr5 <- tdr4[-c(0:4)]
+head(tdr5,10)
+```
+The table is now structured in a way that we can remove every third line. and compress to two lines per chess player entry.  This is done by applying a logical vector tho the data lines through the length of data.
+
+```{r echo=FALSE}
+third_line <- rep(c(TRUE, TRUE, FALSE), length.out =length(tdr5))
+tdr6 <- tdr5[third_line]
+head(tdr6, 5)
+```
+
+Now we can subset the data similar to the way we removed the empty row.  We can subset using applying a logical vector to the data for the first and second row through the length of data.
+
+```{r echo=FALSE}
+first_line <- rep(c(TRUE, FALSE), length.out = length(tdr6))
+second_line <-  rep(c(FALSE, TRUE), length.out = length(tdr6))
+
+tdr7a <- tdr6[first_line]
+head(tdr7a, 5)
+
+tdr7b <- tdr6[second_line]
+head(tdr7b, 5)
+```
+Now we can start the process of extracting the data into columns.  We can see most data elements are separated by "|", so we can use that to parse the columns.  Let's start with the lines that have the have the participants name.  We can parse out player number, player name, total points and the results for each match.
+
+```{r echo=FALSE}
+tdr8a <- strsplit(tdr7a,"\\|")
+tdr8a_frame <- as.data.frame(do.call(rbind, tdr8a), stringsAsFactors=FALSE)
+colnames(tdr8a_frame) <- c("player_number","player_name", "total_points", "round1", "round2", "round3", "round4", "round5", "round6", "round7")
+head(tdr8a_frame,5)
+```
+
+The second line is a little more tricky.  While we have the player state, the pre- and post- ratings are mixed in a string with the USCF id.  There are a number of columns we simply won't need for assignment. We split the strings based upon "|" as a delimiter, drop the unnecessary columns, and then split the USCF_id and player ratings using ":" and "=>", respectively.  We can then bind the columns into a single frame.
+
+```{r echo=FALSE}
+tdr8b <- strsplit(tdr7b,"\\|")
+tdr8b_frame <- as.data.frame(do.call(rbind, tdr8b), stringsAsFactors=FALSE)
+
+colnames(tdr8b_frame) <- c("player_state","uscf_id_player_ratings", "ncol1", "ncol2", "ncol3", "ncol4", "ncol5", "ncol6", "ncol7", "ncol8")
+
+tdr8b_frame2 <- tdr8b_frame[,c("player_state","uscf_id_player_ratings")]
+
+tdr8b_frame3 <- strsplit(tdr8b_frame2$uscf_id_player_ratings, "\\:")
+tdr8b_frame3 <- as.data.frame(do.call(rbind, tdr8b_frame3), stringsAsFactors=FALSE)
+tdr8b_frame3a <- strsplit(tdr8b_frame3$V2, "=>")
+tdr8b_frame3b2 <- as.data.frame(do.call(rbind, tdr8b_frame3a), stringsAsFactors=FALSE)
+colnames(tdr8b_frame3b2) <- c("pre_rating", "post_rating")
+
+tdr8b_frame3b1 <- tdr8b_frame[,c("player_state")]
+tdr_8bdraft <- cbind(tdr8b_frame2,tdr8b_frame3b2)
+tdr_8bfinal <- tdr_8bdraft[, c("player_state", "pre_rating", "post_rating")]
+head(tdr_8bfinal,5)
+```
+Once we have parsed each of the columns to obtain our required data from both the first and second rows, we can now combine the two data frames into a single frame with the required data to continue with calculating the average pre-chess ratings of the opponents for each player.
+
+```{r echo=FALSE}
+tdr_combined <- cbind(tdr8a_frame, tdr_8bfinal)
+head(tdr_combined,5)
+```
+No we can pull out opponent numbers from each of the matches, and then rename the column to indicate that it is the opponent number now represented.
+
+```{r echo=FALSE}
+for (i in 1:7){
+  col_name <- paste0("round",i)
+  tdr_combined[[col_name]] <- gsub("\\D","", tdr_combined[[col_name]])
+}
+
+for (i in 1:7){
+  old_name <- paste0("round",i)
+  new_name <- paste0("opp_rnd",i)
+  colnames(tdr_combined)[colnames(tdr_combined) == old_name] <- new_name
+}
+head(tdr_combined,5)
+```
+
+## Cleaning Up the Frame
+
+Here we do a little housecleaning on the data frame.  We will eliminate any letter characters or numbers from the character strings in the pre- and post-rating columns, as well as any white space before any of the strings.  This will leave the remaining characters that are the rating themselves  We will also replace missing data with "NA" in the strings that are missing.
+
+```{r echo=FALSE}
+
+tdr_combined$pre_rating <- gsub("P\\d+","",tdr_combined$pre_rating)
+tdr_combined$pre_rating <- gsub("\\s", "", tdr_combined$pre_rating)
+tdr_combined$post_rating <- gsub("P\\d+","",tdr_combined$post_rating)
+tdr_combined$post_rating <- gsub("\\s", "", tdr_combined$post_rating)
+tdr_combined$player_number <- gsub("\\s", "", tdr_combined$player_number)
+
+tdr_combined$opp_rnd1 <- na_if(tdr_combined$opp_rnd1,"")
+tdr_combined$opp_rnd2 <- na_if(tdr_combined$opp_rnd2,"")
+tdr_combined$opp_rnd3 <- na_if(tdr_combined$opp_rnd3,"")
+tdr_combined$opp_rnd4 <- na_if(tdr_combined$opp_rnd4,"")
+tdr_combined$opp_rnd5 <- na_if(tdr_combined$opp_rnd5,"")
+tdr_combined$opp_rnd6 <- na_if(tdr_combined$opp_rnd6,"")
+tdr_combined$opp_rnd7 <- na_if(tdr_combined$opp_rnd7,"")
+head(tdr_combined,5)
+```
+### Assigning Pre_Chess Rating to the Opponents
+
+In this section we will take the opponent numbers for each round and replace it with their assigned pre-chess rating.  This was done by extracting out the individual player numbers and ratings, and then using that as a reference frame for the numbers assigned to the opponents in each round.  A new column is created for each round now containing the associated pre-chess rating to the opponent number in the round column (i.e. opp_rndtable1).  While I am sure there is a much quicker way of coding this (for loop or function), I was not able to learn that competently enough for this assignment.
+
+```{r echo=FALSE}
+tdr_combined1 <- tdr_combined
+# Round 1
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd1, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd1_rating <- pre_tourn_rating
+#Round 2
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd2, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd2_rating <- pre_tourn_rating
+#Round 3
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd3, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd3_rating <- pre_tourn_rating
+#Round 4
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd4, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd4_rating <- pre_tourn_rating
+#Round 5
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd5, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd5_rating <- pre_tourn_rating
+#Round 6
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd6, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd6_rating <- pre_tourn_rating
+#Round 7
+tdr_ratings <- tdr_combined1[, c("player_number", "pre_rating")]
+index <- match(tdr_combined1$opp_rnd7, tdr_ratings$player_number)
+pre_tourn_rating <- tdr_ratings$pre_rating[index]
+tdr_combined1$rnd7_rating <- pre_tourn_rating
+head(tdr_combined1,5)
+
+write.csv(tdr_combined1, "C:/Users/para2/Documents/R_Working_Directory/pittsburgh+bridges/Project 1/extra_credit.csv", row.names=FALSE)
+```
+### Calculating Average Pre-Chess Rating of Opponents
+
+In this section we simply average the pre-chess ratings of all faced by a specific player and place that in a column at the end. We will take each of the columns, that are currently characters, and treat them as numeric for the calculation.  We are also doing additional housekeeping by cleaning up the data frame by extracting out the requested columns in the order requested.  The final column will contain the Average Pre-Chess Rating of Opponents faced by a participant, rounded to the nearest whole number. 
+
+```{r echo=FALSE}
+tdr_average <- tdr_combined1[,c("player_name", "player_state", "total_points", "pre_rating", "rnd1_rating", "rnd2_rating", "rnd3_rating", "rnd4_rating", "rnd5_rating", "rnd6_rating", "rnd7_rating")]
+tdr_average$rnd1_rating <- as.numeric(tdr_average$rnd1_rating)
+tdr_average$rnd2_rating <- as.numeric(tdr_average$rnd2_rating)
+tdr_average$rnd3_rating <- as.numeric(tdr_average$rnd3_rating)
+tdr_average$rnd4_rating <- as.numeric(tdr_average$rnd4_rating)
+tdr_average$rnd5_rating <- as.numeric(tdr_average$rnd5_rating)
+tdr_average$rnd6_rating <- as.numeric(tdr_average$rnd6_rating)
+tdr_average$rnd7_rating <- as.numeric(tdr_average$rnd7_rating)
+
+tdr_average$avg_pre_chess_rating_opp <- round(rowMeans(tdr_average[,c ("rnd1_rating", "rnd2_rating", "rnd3_rating", "rnd4_rating", "rnd5_rating", "rnd6_rating", "rnd7_rating")], na.rm = TRUE), digits = 0)
+tdr_average_final <- tdr_average[, c("player_name", "player_state", "total_points", "pre_rating", "avg_pre_chess_rating_opp")]
+head(tdr_average_final,5)
+```
+### Writing File to CSV for Export
+
+In this section we prepare the file for export as CSV for possible import into a SQL database.
+
+```{r}
+write.csv(tdr_average_final, "C:/Users/para2/Documents/GitHub/DATA607/Project_1/Project_1_Conrardy.csv", row.names=FALSE)
+print('CSV file written successfully to location')
+
+```
+
