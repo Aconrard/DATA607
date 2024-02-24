@@ -22,7 +22,7 @@ knitr::include_graphics("assignment_4.png")
 ### Import Untidy Data from MySQL Database
 
 ```{r database}
-flight_db <- dbConnect(MySQL(), user = "aconrardy", password = "DocGraduate2024*", dbname = 'assignment_week_5', host = "data607b.mysql.database.azure.com")
+flight_db <- dbConnect(MySQL(), user = "aconrardy", password = "DocGrad2023*", dbname = 'assignment_week_5', host = "data607b.mysql.database.azure.com")
 
 flight_data <- dbReadTable(flight_db, "flight_data")
 flight_data
