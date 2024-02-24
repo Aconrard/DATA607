@@ -1,0 +1,6 @@
+ident_city,arrival_city,alaska_total,alaska_ontime,alaska_delayed,amwest_total,amwest_ontime,amwest_delayed
+1,Los Angeles,559,497,62,811,694,117
+2,Phoenix,233,221,12,5255,4840,415
+3,San Diego,232,212,20,448,383,65
+4,San Francisco,605,503,102,449,320,129
+5,Seattle,2146,1841,305,262,201,61
