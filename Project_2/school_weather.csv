@@ -1,0 +1,471 @@
+﻿UnitID,Institution,TAG,City,State,Avg Jan Temp,Avg April Temp,Avg July Temp,Avg Oct Temp,Days w/Precipitation,Sunny Days
+167783,Simmons University,,Boston,MA,36°/19°,57°/41°,82°/66°,62°/42°,130,200
+214175,Muhlenberg College,,Allentown,PA,38°/20°,62°/ 39°,86°/63°,65°/41°,122,201
+166692,Massachusetts Maritime Academy,,Buzzards Bay,MA,38°/20°,55°/37°,80°/63°,62°/43°,106,199
+192703,Manhattan College,,Riverdale,NY,38°/25°,63°/45°,85°/67°,65°/48°,123,200
+174233,University of Minnesota-Duluth,,Duluth,MN,21°/3°,48°/30°,75°/56°,52°/36°,114,179
+171456,Northern Michigan University,,Marquette,MI,24°/10°,48°/31°,76°/57°,54°/38°,158,189
+171128,Michigan Technological University,,Houghton,MI,23°/7°,49°29°,76°/54°,53°/35°,184,184
+240727,University of Wyoming,,Laramie,WY,35°/11°,52°/25°,80°/48°,56°/27°,231,233
+161004,Bowdoin College,,Brunswick,ME,30°/9°,53°/32°,78°/58°,58°/37°,133,200
+161253,University of Maine,,Orono,ME,28°/7°,53°/33°,80°/58°,57°/37°,121,178
+161086,Colby College,,Waterville,ME,28°/8°,53°/33°,80°/59°,58°/38°,127,196
+160977,Bates College,,Lewiston,ME,28°/9°,53°/33°,79°/59°,57°/38°,132,197
+230995,Norwich University,,Northfield,VT,27°/6°,54°/30°,80°/55°,57°/34°,144,165
+200280,University of North Dakota,UND,Grand Forks,ND,16°/-3°,54°/31°,81°/57°,54°/33°,97,197
+195216,St Lawrence University,SLU,Canton,NY,26°/5°,54°/33°,79°/58°,57°/37°,147,160
+196200,SUNY College at Potsdam,,Potsdam,NY,26°/6°,54°/33°,79°/58°,57°/37°,150,160
+190044,Clarkson University,,Potsdam,NY,26°/6°,54°/33°,80°/58°,57°/37°,149,161
+196246,SUNY College at Plattsburgh,,Plattsburgh,NY,27°/8°,54°/34°,80°/60°,57°/39°,117,159
+196194,SUNY College at Oswego,,Oswego,NY,30°/15°,54°/36°,80°/60°,58°/42°,167,161
+196185,SUNY Oneonta,,Oneonta,NY,29°/12°,55°/32°,55°/32°,57°/37°,146,155
+190099,Colgate University,,Hamilton,NY,30°/11°,55°/32°,79°/56°,58°/36°,,160
+196149,SUNY Cortland,,Cortland,NY,29°/13°,55°/34°,79°/57°,58°/37°,159,157
+231174,University of Vermont,UVM,Burlington,VT,28°/9°,55°/34°,81°/60°,57°/39°,150,159
+239017,Lawrence University,,Appleton,WI,25°/9°,55°/35°,81°/61°,58°/38°,115,189
+191630,Hobart William Smith Colleges,HWS,Geneva,NY,32°/17°,55°/36°,81°/61°,60°/42°,135,164
+165699,Endicott College,,Beverly,MA,35°/18°,55°/36°,80°/61°,61°/41°,114,201
+167729,Salem State University,,Salem,MA,35°/18°,55°/36°,61°/41°,61°/41°,122,201
+217536,Salve Regina University,,Newport,RI,38°/23°,56° /39°,80°/64°,63°/47°,126,207
+188641,Alfred University,,Alfred,NY,32°/13°,56°/31°,80°/55°,59°/36°,123,162
+174747,College of Saint Benedict,,Saint Joseph,MN,22°/2°,56°/32°,82°/60°,57°/36°,104,199
+174251,University of Minnesota-Morris,,Morris,MN,21°/2°,56°/33°,82°/60°,57°/35°,99,198
+174792,Saint Johns University,,Collegeville,MN,22°/2°,56°/33°,82°/60°,57°/37°,101,199
+200332,North Dakota State University-Main Campus,NDSU,Fargo,ND,18°/0°,56°/33°,82°/60°,56°/35°,99,200
+219356,South Dakota State University,SDSU,Brookings,SD,23°/4°,56°/33°,82°/60°,58°/35°,85,212
+196079,Binghamton University,SUNY Binghamton,Vestal,NY,31°/14°,56°/34°,80°/58°,59°/38°,158,154
+190415,Cornell University,,Ithaca,NY,32°/15°,56°/34°,81°/58°,60°/39°,159,154
+191968,Ithaca College,,Ithaca,NY,32°/15°,56°/34°,81°/58°,60°/39°,159,155
+239628,Ripon College,,Ripon,WI,26°/7°,56°/34°,81°/59°,58°/37°,108,188
+164562,Assumption College,,Worcester,MA,32°/14°,56°/34°,80°/59°,59°/38°,130,197
+168421,Worcester Polytechnic Institute,WPI,Worcester,MA,32°/14°,56°/34°,80°/59°,59°/38°,134,197
+191515,Hamilton College,,Clinton,NY,29°/12°,56°/35°,80°/59°,59°/38°,164,161
+165334,Clark University,,Worcester,MA,33°/14°,56°/35°,80°/60°,60°/39°,130,197
+196088,University at Buffalo,,Buffalo,NY,32°/17°,56°/36°,81°/61°,60°/42°,164,155
+189705,Canisius College,,Buffalo,NY,32°/17°,56°/36°,81°/61°,81°/61°,165,157
+196413,Syracuse University,,Syracuse,NY,31°/15°,56°/36°,81°/61°,60°/41°,165,163
+195003,Rochester Institute of Technology,RIT,Rochester,NY,32°/17°,56°/36°,82°/61°,60°/41°,142,165
+195030,University of Rochester,UR,Rochester,NY,32°/17°,56°/36°,82°/61°,60°/41°,142,165
+239318,Milwaukee School of Engineering,MSOE,Milwaukee,WI,30°/14°,56°/37°,83°/63°,61°/42°,123,191
+239105,Marquette University,,Milwaukee,WI,30°/14°,56°/37°,83°/63°,83°/63°,123,191
+180461,Montana State University,,Bozeman,MT,36°/13°,57°/30°,84°/51°,60°/31°,113,188
+230959,Middlebury College,,Middlebury,VT,29°/9°,57°/33°,82°/58°,59°/37°,132,159
+182670,Dartmouth College,,Hanover,NH,29°/8°,57°/33°,82°/58°,59°/36°,136,193
+169248,Central Michigan University,,Mount Pleasant,MI,29°/13°,57°/34°,83°/59°,59°/39°,108,170
+168342,Williams College,,Williamstown,MA,31°/12°,57°/34°,80°/57°,59°/37°,130,180
+230816,Bennington College,,Bennington,VT,30°/12°,57°/34°,79°/57°,59°/37°,138,180
+167288,Massachusetts College of Liberal Arts,,North Adams,MA,31°/12°,57°/34°,80°/57°,59°/37°,137,188
+165820,Fitchburg State University,,Fitchburg,MA,32°/13°,57°/34°,81°/59°,60°/38°,127,197
+183044,University of New Hampshire-Main Campus,UNH,Durham,NH,33°/13°,57°/34°,81°/58°,61°/38°,118,199
+196167,SUNY College at Geneseo,,Geneseo,NY,32°/16°,57°/35°,81°/59°,60°/40°,157,165
+173258,Carleton College,,Northfield,MN,23°/5°,57°/35°,82°/61°,59°/37°,102,192
+173647,Gustavus Adolphus College,,Saint Peter,MN,24°/5°,57°/35°,83°/62°,59°/37°,86,196
+166124,College of the Holy Cross,CHC,Worcester,MA,33°/14°,57°/35°,81°/60°,61°/38°,128,197
+171100,Michigan State University,MSU,East Lansing,MI,30°/17°,57°/36°,82°/61°,82°/61°,174,174
+183239,Saint Anselm College,,Manchester,NH,33°/13°,57°/36°,82°/61°,61°/39°,199,123
+196103,SUNY College of Environmental Science and Forestry,,Syracuse,NY,31°/15°,57°/36°,81°/61°,60°/42°,166,161
+196121,SUNY College at Brockport,,Brockport,NY,32°/17°,57°/36°,82°/61°,60°/42°,153,165
+142285,University of Idaho,UI,Moscow,ID,37°/26°,57°/36°,83°/49°,60°/36°,116,169
+236939,Washington State University,WSU,Pullman,WA,37°/26°,57°/36°,83°/50°,60°/36°,116,172
+171571,Oakland University,,Rochester Hills,MI,30°/16°,57°/36°,82°/61°,59°/40°,123,179
+240444,University of Wisconsin-Madison,UW Madison,Madison,WI,27°/10°,57°/36°,82°/61°,60°/39°,115,187
+129020,University of Connecticut,UConn,Storrs,CT,34°/15°,57°/36°,80°/60°,61°/40°,122,191
+217484,University of Rhode Island,URI,Kingston,RI,38°/19°,57°/36°,81°/60°,63°/40°,123,201
+213987,Mercyhurst University,,Erie,PA,34°/20°,57°/37°,81°/62°,61°/44°,171,151
+196158,SUNY at Fredonia,,Fredonia,NY,34°/20°,57°/38°,81°/63°,61°/45°,144,158
+146481,Lake Forest College,LFC,Lake Forest,IL,31°/16°,57°/38°,82°/63°,62°/42°,121,190
+167358,Northeastern University,,Boston,MA,36°/19°,57°/38°,82°/63°,62°/42,130,200
+164988,Boston University,BU,Boston,MA,36°/19°,57°/38°,82°/63°,62°/42°,130,200
+168227,Wentworth Institute of Technology,WIT,Boston,MA,36°/19°,57°/38°,83°/62°,62°/42°,132,201
+166027,Harvard University,,Cambridge,MA,36°/19°,57°/38°,82°/63°,62°/43°,133,201
+166683,Massachusetts Institute of Technology,MIT,Cambridge,MA,36°/19°,57°/38°,82°/63°,62°/43°,133,201
+168148,Tufts University,,Medford,MA,36°/19°,57°/38°,82°/63°,62°/43°,134,201
+166638,University of Massachusetts-Boston,UMass Boston,Boston,MA,36°/20°,57°/39°,82°/64°,62°/44°,128,201
+165662,Emerson College,,Boston,MA,36°/20°,57°/39°,82°/64°,62°/44°,132,201
+168005,Suffolk University,,Boston,MA,36°/20°,57°/39°,82°/64°,62°/44°,132,201
+128902,Connecticut College,Conn College,New London,CT,38°/21°,57°/39°,81°/64°,63°/44°,118,203
+130624,United States Coast Guard Academy,USCGA,New London,CT,38°/21°,57°/39°,81°/64°,63°/44°,118,203
+174844,St Olaf College,,Northfield,MN,23°/5°,57°35°,82°/61°,59°/37°,102,192
+186201,Ramapo College of New Jersey,,Mahwah,NJ,34°/17°,58/ 37°,81°/61°,61°40°,117,207
+180489,The University of Montana,,Missoula,MT,34°/18°,58°/33°,85°/51°,57°/32°,159,120
+240268,University of Wisconsin-Eau Claire,,Eau Claire,WI,24°/5°,58°/33°,83°/59°,58°/36°,122,191
+169983,Kettering University,,Flint,MI,30°/15°,58°/34°,82°/59°,60°/38°,120,169
+210669,Allegheny College,,Meadville,PA,32°/17°,58°/35°,81°/58°,61°/40°,160,160
+164465,Amherst College,,Amherst,MA,33°/13°,58°/35°,82°/59°,61°/38°,118,190
+166629,University of Massachusetts-Amherst,UMass Amherst,Amherst,MA,33°/13°,58°/35°,82°/59°,61°/38°,118,190
+166018,Hampshire College,,Amherst,MA,33°/13°,58°/35°,82°/59°,61°/38°,118,192
+235316,Gonzaga University,,Spokane,WA,35°/24°,58°/36°,84°/53°,58°/35°,115,171
+237066,Whitworth University,,Spokane,WA,35°/24°,58°/36°,84°/53°,58°/35°,115,171
+215929,University of Scranton,,Scranton,PA,33°/16°,58°/36°,81°/59°,61°/38°,131,176
+170286,Hillsdale College,,Hillsdale,MI,30°/15°,58°/36°,82°/60°,60°/40°,133,177
+168281,Wheaton College,,Norton,MA,37°/17°,58°/36°,83°/61°,62°/40°,117,201
+167996,Stonehill College,,Easton,MA,37°/17°,58°/36°,58°/36°,62°/40°,121,201
+217165,Bryant University,,Smithfield,RI,36°/16°,58°/36°,82°/61°,63°/40°,124,201
+166513,University of Massachusetts-Lowell,UMass Lowell,Lowell,MA,34°/15°,58°/36°,83°/61°,62°/39°,124,201
+168218,Wellesley College,,Wellesley,MA,35°/16°,58°/36°,83°/61°,63°/39°,127,201
+168546,Albion College,,Albion,MI,30°/16°,58°/37°,82°/ 60°,60°/40°,127,169
+238333,Beloit College,,Beloit,WI,28°/11°,58°/37°,83°/62°,61°/39°,116,189
+173902,Macalester College,,Saint Paul,MN,24°/7°,58°/37°,83°/64°,59°/39°,113,196
+174914,University of St Thomas,,Saint Paul,MN,24°/7°,58°/37°,83°/64°,59°/39°,113,196
+164739,Bentley University,,Waltham,MA,35°/17°,58°/37°,83°/62°,62°/40°,131,197
+165015,Brandeis University,,Waltham,MA,35°/17°,58°/37°,83°/62°,62°/40°,131,197
+164580,Babson College,,Wellesley,MA,36°/17°,58°/37°,83°/62°,62°/40°,128,201
+164924,Boston College,BC,Chestnut Hill,MA,36°/17°,58°/37°,83°/62°,62°/40°,131,201
+441982,Franklin W Olin College of Engineering,,Needham,MA,36°/17°,58°/37°,83°/62°,62°/40°,131,201
+170301,Hope College,,Holland,MI,32°/20°,58°/38°,82°/62°,61°/43°,118,165
+217156,Brown University,,Providence,RI,37°/19°,58°/38°,83°/63°,63°/43°,127,200
+217493,Rhode Island School of Design,,Providence,RI,37°/19°,58°/38°,83°/63°,63°/43°,127,200
+166850,Merrimack College,,North Andover,MA,35°17°,58°/38°,83°/62°,62°/42°,127,201
+147767,Northwestern University,,Evanston,IL,32°/17°,58°/39°,83°/65°,62°/44°,125,193
+217518,Roger Williams University,,Bristol,RI,38°/22°,58°/39°,82°/64°,82°/64°,127,201
+203368,John Carroll University,,University Heights,OH,34°/21°,58°/40°,82°/65°,62°/46°,163,160
+237011,Western Washington University,,Bellingham,WA,47°/35°,58°/41°,72°/53°,59°/43°,150,159
+146719,Loyola University Chicago,LUC,Chicago,IL,32°/19°,58°/41°,84°/68°,63°/47°,125,189
+217402,Providence College,,Providence,RI,39°/26°,58°/43°,83°/69°,64°/50°,127,181
+105330,Northern Arizona University,NAU,Flagstaff,AZ,43°/14°,59°/27°,82°/49°,63°/30°,83,266
+209506,Oregon Institute of Technology,,Klamath Falls,OR,41°/21°,59°/30°,86°/48°,65°/31°,95,218
+126678,Colorado College,CC,Colorado Springs,CO,43°/17°,59°/32°,84°/56°,63°/35°,88,243
+126775,Colorado School of Mines,,Golden,CO,44°/19°,59°/33°,85°/57°,63°/36°,84,242
+167835,Smith College,,Northampton,MA,33°/12°,59°/34°,82°/58°,61°/37°,117,189
+195526,Skidmore College,,Saratoga Springs,NY,30°/12°,59°/35°,82°/59°,61°/39°,129,108
+129215,Eastern Connecticut State University,,Willimantic,CT,35°/15°,59°/35°,82°/60°,62°/38°,117,192
+166939,Mount Holyoke College,,South Hadley,MA,33°/14°,59°/36°,83°/60°,62°/39°,116,190
+152080,University of Notre Dame,UND,Notre Dame,IN,31°/16°,59°/37°,83°/61°,62°/41°,144,173
+152390,Saint Mary's College,,Notre Dame,IN,31°/16°,59°/37°,83°/61°,83°/61°,144,173
+196866,Union College,,Schenectady,NY,31°/14°,59°/37°,83°/61°,61°/40°,137,177
+196060,SUNY at Albany,,Albany,NY,32°/15°,59°/37°,83°/62°,61°/40°,134,180
+170976,University of Michigan-Ann Arbor,UMich,Ann Arbor,MI,31°/17°,59°/37°,83°/61°,62°/40°,140,180
+194824,Rensselaer Polytechnic Institute,RPI,Troy,NY,32°/14°,59°/37°,83°/62°,61°/40°,135,183
+154095,University of Northern Iowa,UNI,Cedar Falls,IA,26°/9°,59°/37°,84°/62°,62°/38°,106,192
+206084,University of Toledo,,Toledo,OH,33°/19°,59°/38°,85°/64°,63°/42°,124,180
+171137,University of Michigan-Dearborn,UMich Dearborn,Dearborn,MI,33°/18°,59°/38°,84°/63°,62°/42°,126,180
+172644,Wayne State University,,Detroit,MI,32°/19°,59°/38°,84°/63°,62°/43°,126,180
+240329,University of Wisconsin-La Crosse,,La Crosse,WI,26°/9°,59°/38°,84°/63°,60°/41°,114,192
+174066,University of Minnesota-Twin Cities,UMN,Minneapolis,MN,24°/8°,59°/38°,85°/64°,59°/40°,110.6,196
+203517,Kent State University at Kent,,Kent,OH,33°/19°,59°/39°,82°/62°,61°/43°,144,164
+130493,Southern Connecticut State University,,New Haven,CT,38°/21°,59°/39°,83°/64°,64°/44°,108,204
+130794,Yale University,,New Haven,CT,38°/21°,59°/39°,83°/64°,64°/44°,108,204
+201645,Case Western Reserve University,CWRU,Cleveland,OH,35°/22°,59°/41°,82°/65°,63°/46°,149,166
+377555,University of Washington-Bothell Campus,UW,Bothell,WA,48°/36°,59°/42°,76°/55°,60°/46°,162,164
+194091,New York Institute of Technology,NYIT,Old Westbury,NY,39°25°,59°/42°,83°/67°,64°/48°,124,168
+191649,Hofstra University,,Hempstead,NY,39°/25°,59°/42°,82°/66°,64°/48°,126,172
+188429,Adelphi University,,Garden City,NY,39°/26°,59°/42°,83°/67°,64°/48°,127,173
+145725,Illinois Institute of Technology,IIT,Chicago,IL,33°/20°,59°/42°,84°/68°,64°/48°,124,189
+145600,University of Illinois at Chicago,UIC,Chicago,IL,33°/20°,59°/42°,84°/68°,64°/48°,124,189
+144050,University of Chicago,UChicago,Chicago,IL,33°/20°,59°/42°,84°/68°,64°/48°,125,189
+144740,DePaul University,,Chicago,IL,33°/20°,59°/42°,84°/68°,63°/48°,126,189
+236948,University of Washington-Seattle Campus,UW,Seattle,WA,48°/37°,59°/43°,76°/57°,60°/46°,155,152
+214777,Pennsylvania State University-Main Campus,PSU; Penn State,University Park,PA,33°/17°,59°35°,82°/58°,62°/38°,140,182
+212805,Grove City College,,Grove City,PA,35°/17°,60°/35°,82°/58°,63°/39°,156,161
+196176,State University of New York at New Paltz,,New Paltz,NY,35°/13°,60°/35°,84°/59°,63°/37°,125,177
+153384,Grinnell College,,Grinnell,IA,28°/10°,60°/36°,84°/62°,62°/38°,196,104
+197133,Vassar College,,Poughkeepsie,NY,35°/15°,60°/36°,84°/61°,63°/39°,125,165
+192819,Marist College,,Poughkeepsie,NY,35°/14°,60°/36°,85°/60°,63°/39°,125,172
+170532,Kalamazoo College,,Kalamazoo,MI,32°/17°,60°/37°,84°/61°,62°/41°,139,159
+172699,Western Michigan University,,Kalamazoo,MI,32°/17°,60°/37°,84°/61°,62°/41°,139,161
+211158,Bloomsburg University of Pennsylvania,,Bloomsburg,PA,34°/18°,60°/37°,83°/60°,62°/40°,123,181
+149781,Wheaton College,,Wheaton,IL,31°/15°,60°/37°,84°/62°,63°/40°,119,189
+204501,Oberlin College,,Oberlin,OH,34°/19°,60°/38°,84°/62°,63°/43°,127,166
+206589,The College of Wooster,,Wooster,OH,34°/18°,60°/38°,83°/60°,63°/40°,138,168
+152600,Valparaiso University,,Valparaiso,IN,31°/17°,60°/39°,82°/63°,63°/43°,130,175
+201441,Bowling Green State University-Main Campus,,Bowling Green,OH,32°/18°,60°/39°,84°/63°,63°/42°,128,182
+130590,Trinity College,,Hartford,CT,36°/18°,60°/39°,84°/63°,63°/41°,120,189
+130697,Wesleyan University,,Middletown,CT,36°/19°,60°/39°,84°/63°,63°/42°,119,190
+197036,United States Military Academy,USMA; West Point,West Point,NY,34°/18°,60°/39°,82°/63°,62°/43°,120,200
+130226,Quinnipiac University,,Hamden,CT,37°/20°,60°/39°,84°/63°,64°/43°,108,205
+200800,University of Akron Main Campus,,Akron,OH,34°/20°,60°/40°,83°/63°,61°/44°,142,164
+130253,Sacred Heart University,,Fairfield,CT,38°/21°,60°/40°,83°/65°,64°/44°,113,175
+129242,Fairfield University,,Fairfield,CT,38°/22°,60°/40°,83°/65°,64°/46°,120,175
+236328,University of Puget Sound,,Tacoma,WA,47°/37°,60°/42°,77°/54°,61°/45°,152,141
+185572,Monmouth University,,West Long Branch,NJ,40°/24°,60°/42°,84°/67°,66°/47°,115,209
+186876,Stockton University,,Galloway,NJ,41°/26°,60°/43°,84°/68°,66°/48°,112,205
+195809,St John's University-New York,,Queens,NY,39°/26°,60°/44°,84°/69°,65°/50°,120,200
+190549,CUNY Brooklyn College,,Brooklyn,NY,39°/27°,60°/44°,84°/69°,65°/50°,119,227
+189088,Bard College,,Annandale-On-Hudson,NY,34°/13°,61°/35°,84°/59°,63°/38°,121,182
+203535,Kenyon College,,Gambier,OH,34°/16°,61°/36°,83°/60°,63°/38°,133,171
+196219,SUNY at Purchase College,,Purchase,NY,38°/21°,61°/39°,84°/63°,64°/43°,119,200
+197869,Appalachian State University,App State; ASU,Boone,NC,40°/20°,61°/39°,78°/59°,62°/41°,138,204
+230764,University of Utah,UU,Salt Lake City,UT,38°/22°,61°/39°,90°/65°,64°/42°,92,226
+209065,Linfield College-McMinnville Campus,,McMinnville,OR,48°/35°,61°/40°,82°/53°,64°/42°,143,154
+210401,Willamette University,,Salem,OR,47°/35°,61°/40°,81°/53°,64°/43°,151,157
+150136,Ball State University,BSU,Muncie,IN,34°/18°,61°/40°,84°/64°,64°/42°,127,185
+152673,Wabash College,,Crawfordsville,IN,32°/17°,61°/40°,83°/63°,64°/42°,119,187
+185590,Montclair State University,,Montclair,NJ,38°/20°,61°/40°,85°/64°,64°/42°,121,205
+209825,University of Portland,,Portland,OR,48°/37°,61°/43°,79°/56°,63°/45°,158,142
+197027,United States Merchant Marine Academy,,Kings Point,NY,39°/26°,61°/44°,85°/68°,65°/50°,116,200
+190637,CUNY Lehman College,,Bronx,NY,39°/27°,61°/44°,85°/69°,65°/50°,122,200
+191241,Fordham University,,Bronx,NY,39°/27°,61°/44°,85°/69°,65°/50°,122,200
+193900,New York University,NYU,New York,NY,39°/26°,61°/44°,84°/69°,64°/50°,119,224
+189097,Barnard College,,New York,NY,39°/27°,61°/44°,85°/69°,65°/50°,122,224
+190594,CUNY Hunter College,,New York,NY,39°/27°,61°/44°,85°/69°,65°/50°,116,232
+197708,Yeshiva University,,New York,NY,39°/27°,61°/44°,85°/69°,65°/50°,116,234
+190567,CUNY City College,,New York,NY,38°/27°,61°/45°,85°/69°,64°/50°,123,234
+209542,Oregon State University,OSU,Corvallis,OR,47°/34°,61°40°,82°/52°,65 42°,159,162
+126614,University of Colorado Boulder,CU Boulder,Boulder,CO,47°/19°,62°/34°,88°/57°,66°/36°,88,245
+219471,University of South Dakota,USD,Vermillion,SD,30°/9°,62°/36°,86°/63°,64°/38°,80,208
+213251,Juniata College,,Huntingdon,PA,36°/19°,62°/37°,84°/61°,64°/40°,127,193
+216667,Washington & Jefferson College,,Washington,PA,36°/19°,62°/38°,82°/60°,63°/40°,148,162
+211291,Bucknell University,,Lewisburg,PA,36°/19°,62°/38°,84°/61°,64°/40°,128,176
+216278,Susquehanna University,,Selinsgrove,PA,36° /19°,62°/38°,85°/62°,64°/40°,128,178
+153162,Cornell College,,Mount Vernon,IA,29°/11°,62°/38°,84°62°,63°/40°,108,193
+153603,Iowa State University,ISU,Ames,IA,29°/11°,62°/38°,84°/63°,63°/39°,109,202
+213543,Lehigh University,,Bethlehem,PA,37°/19°,62°/38°,84°/62°,64°/40°,120,202
+214157,Moravian College,,Bethlehem,PA,37°/19°,62°/38°,62°/38°,64°/40°,120,202
+213385,Lafayette College,,Easton,PA,37°/19°,62°/38°,85°/63°,65°/41°,206,206
+150455,Earlham College,,Richmond,IN,35°/18°,62°/39°,84°/62°,65°/41°,130,177
+213668,Lycoming College,,Williamsport,PA,35°/20°,62°/39°,85°/62°,63°/41°,135,180
+216764,West Chester University of Pennsylvania,WCU,West Chester,PA,38°/21°,62°/39°,85°/63°,65°/42°,119.5,201
+184348,Drew University,,Madison,NJ,38°/19°,62°/39°,85°/63°,65°/41°,118,205
+186584,Seton Hall University,,South Orange,NJ,39°/20°,62°/39°,86° /64°,66°/42°,119,205
+209551,University of Oregon,UO,Eugene,OR,48°/34°,62°/40°,82°/52°,65°/42°,156,157
+213996,Messiah College,,Mechanicsburg,PA,38°/22°,62°/40°,85°/64°,65°/43°,123,195
+212009,Dickinson College,,Carlisle,PA,37°/21°,62°/40°,85°/63°,65°/42°,122,196
+153269,Drake University,,Des Moines,IA,31°/13°,62°/40°,86°/65°,63°/41°,109,202
+186131,Princeton University,,Princeton,NJ,39°/22°,62°/40°,86°/64°,65°/43°,125,204
+143084,Augustana College,,Rock Island,IL,31°/15°,62°/41°,85°/65°,64°/43°,115,198
+187134,The College of New Jersey,TCNJ,Ewing,NJ,39°/22°,62°/41°,85°/65°,65°/44°,120,205
+150163,Butler University,,Indianapolis,IN,35°/20°,62°/42°,84°/65°,65°/44°,122,186
+151111,Indiana University-Purdue University-Indianapolis,IUPUI,Indianapolis,IN,35°/20°,62°/42°,84°/65°,65°/44°,122,186
+185828,New Jersey Institute of Technology,NJIT,Newark,NJ,39°23°,62°/42°,86°/67°,66°/46°,116,190
+186399,Rutgers University-Newark,,Newark,NJ,39°/23°,62°/42°,86°/67°,66°/46°,206,206
+209056,Lewis & Clark College,,Portland,OR,48°/36°,62°/43°,81°/56°,64°/46°,156,144
+209807,Portland State University,,Portland,OR,48°/36°,62°/43°,81°/56°,64°/46°,156,146
+209922,Reed College,,Portland,OR,48°/36°,62°/43°,81°/56°,81°/56°,156,146
+195304,Sarah Lawrence College,,Bronxville,NY,38°/25°,62°/43°,85°/67°,65°/48°,121,200
+197197,Wagner College,,Staten Island,NY,39°/25°,62°/43°,85°/68°,65°/48°,117,206
+186867,Stevens Institute of Technology,Stevens Tech,Hoboken,NJ,39°/25°,62°/44°,86°/68°,65°/48°,115,220
+190372,Cooper Union for the Advancement of Science and Art,,New York,NY,39°/26,62°/44°,85°/69°,65°/50°,116,232
+127060,University of Denver,UD,Denver,CO,47°/18°,63°/35°,89°/59°,66°/36°,83,245
+182290,University of Nevada-Reno,UNR,Reno,NV,45°/24°,63°/35°,91°/56°,68°/38°,51,252
+215293,University of Pittsburgh-Pittsburgh Campus,,Pittsburgh,PA,37°/21°,63°/39°,84°/63°,64°/43°,137.3,162
+202523,Denison University,,Granville,OH,36°/20°,63°/39°,84°/62°,65°/41°,128,175
+145646,Illinois Wesleyan University,IWU,Bloomington,IL,33°/15°,63°/39°,86°/63°,65°;/41°,105,194
+145813,Illinois State University,ISU,Normal,IL,33°/15°,63°/39°,86°/63°,66°/41°,107,195
+211440,Carnegie Mellon University,CMU,Pittsburgh,PA,37°/21°,63°/40°,84°/63°,64°/43°,140,160
+212106,Duquesne University,,Pittsburgh,PA,37°/21°,63°/40°,84°/63°,64°/43°,140,160
+150400,DePauw University,,Greencastle,IN,35°/18°,63°/40°,85°/63°,65°/42°,111,187
+146427,Knox College,,Galesburg,IL,31°/14°,63°/40°,84°/64°,64°/42°,111,193
+143358,Bradley University,,Peoria,IL,33°/16°,63°/40°,86°/64°,65°/42°,110,194
+145637,University of Illinois at Urbana-Champaign,UIUC,Champaign,IL,33°/17°,63°/40°,84°/64°,65°/42°,111,194
+214041,Millersville University of Pennsylvania,,Millersville,PA,38°/21°,63°/40°,85°/64°,65°/43°,122,194
+212674,Gettysburg College,,Gettysburg,PA,39°/21°,63°/40°,` 86°/63°,65°/42°,119,195
+153658,University of Iowa,UI,Iowa City,IA,30°/13°,63°/40°,85°/64°,64°/41°,98,196
+212197,Elizabethtown College,,Elizabethtown,PA,37°/21°,63°/40°,85°/64°,65°/43°,121,197
+178615,Truman State University,,Kirksville,MO,34°/15°,63°/40°,86°/65°,64°/42°,98,200
+212577,Franklin and Marshall College,F&M,Lancaster,PA,38°/21°,63°/40°,85°/64°,65°/43°,122,202
+216524,Ursinus College,,Collegeville,PA,38°/21°,63°/40°,86°/64°,65°/42°,111,204
+186380,Rutgers University-New Brunswick,RU,New Brunswick,NJ,40°/22°,63°/40°,86°/65°,66°/43°,117,208
+202480,University of Dayton,,Dayton,OH,36°/21°,63°/42°,85°/65°,65°/45°,129,176
+122612,University of San Francisco,USF,San Francisco,CA,57°/44°,63°/48°,67°/54°,69°/53°,79,260
+122597,San Francisco State University,SFSU,San Francisco,CA,57°/46°,63°/50°,67°/55°,69°/54°,68,260
+184782,Rowan University,,Glassboro,NJ,41°/24°,64°/`42°,87°/66°,66° /46°,116,116
+127741,University of Northern Colorado,,Greeley,CO,44°/15°,64°/33°,90°/57°,66°/34°,77,244
+142115,Boise State University,,Boise,ID,38°/24°,64°/38°,92°/58°,66°/39°,87,206
+243780,Purdue University-Main Campus,,West Lafayette,IN,35°/17°,64°/39°,86°/63°,66°/42°,120,185
+181464,University of Nebraska-Lincoln,UNL,Lincoln,NE,35°/14°,64°/39°,89°/66°,66°/40°,86,214
+233921,Virginia Polytechnic Institute and State University,Virginia Tech; Va Tech,Blacksburg,VA,42°/22°,64°/39°,83°/61°,66°/40°,124,215
+230038,Brigham Young University-Provo,BYU,Provo,UT,39°/21°,64°/39°,93°/62°,67°/40°,90,222
+238032,West Virginia University,WVU,Morgantown,WV,39°/22°,64°/40°,84°/63°,66°/43°,149,155
+204909,Ohio Wesleyan University,OWU,Delaware,OH,36°/20°,64°/40°,85°/63°,66°/42°,127,178
+211273,Bryn Mawr College,,Bryn Mawr,PA,39°/22°,64°/40°,86°/65°,65°/43°,116,201
+164270,McDaniel College,,Westminster,MD,40°/21°,64°/40°,86°/63°,66°/43°,120,204
+204796,Ohio State University-Main Campus,OSU,Columbus,OH,37°/21°,64°/41°,85°/64°,66°/43°,130,178
+237057,Whitman College,,Walla Walla,WA,42°/29°,64°/41°,89°/59°,65°/41°,105,192
+212911,Haverford College,,Haverford,PA,40°/23°,64°/41°,87°/66°,66°/44°,116,205
+216597,Villanova University,,Villanova,PA,40°/23°,64°/41°,87°/66°,66°/44°,116,205
+213367,La Salle University,,Philadelphia,PA,41°/26°,64°/44°,87°/69°,67°/48°,119,207
+215770,Saint Joseph's University,,Philadelphia,PA,41°/26°,64°/44°,87°/69°,67°/48°,119,207
+216852,Widener University,,Chester,PA,40°/27°,64°/45°,87°/70°,66°/50°,112,205
+212054,Drexel University,,Philadelphia,PA,41°/27°,64°/45°,87°/70°,67°/50°,117,205
+215062,University of Pennsylvania,UPenn,Philadelphia,PA,41°/27°,64°/45°,87°/70°,67°/50°,117,205
+216287,Swarthmore College,,Swarthmore,PA,40°/26°,64°/45°,87°/70°,67°/49°,120,205
+245652,St. John's College,,Santa Fe,NM,44°/18°,65°/33°,86°/55°,67°/36°,66,283
+232423,James Madison University,JMU,Harrisonburg,VA,42°/21°,65°/39°,85°/62°,67°/41°,125,169
+204857,Ohio University-Main Campus,OU,Athens,OH,38°/21°,65°/39°,84°/62°,66°/40°,115,170
+204024,Miami University-Oxford,,Oxford,OH,37°/20°,65°/40°,86°/64°,67°/42°,128,181
+201885,University of Cincinnati-Main Campus,Cincy,Cincinnati,OH,39°/22°,65°/42°,86°/65°,67°/44°,121,176
+151351,Indiana University-Bloomington,IU; IUB,Bloomington,IN,38°/20°,65°/42°,85°/65°,67°/43°,119,184
+130943,University of Delaware,UDel,Newark,DE,41°/24°,65°/42°,87°/66°,67°/45°,112.5,201
+152318,Rose-Hulman Institute of Technology,RHIT,Terre Haute,IN,37°/20°,65°/43°,87°/65°,67°/43°,115,190
+216339,Temple University,,Philadelphia,PA,42°/27°,65°/44°,88°/68°,68°/49°,123,205
+164216,Washington College,,Chestertown,MD,41°/25°,65°/44°,87°/68°,68°/47°,113,211
+186371,Rutgers University-Camden,,Camden,NJ,42°/27°,65°/45°,87°69°,67°/49°,205,116
+206622,Xavier University,,Cincinnati,OH,39°/22°,66°/41°,87°/64°,67°/42°,123,179
+232186,George Mason University,,Fairfax,VA,42°/24°,66°/42°,86°/66°,67°/45°,119,198
+157818,Transylvania University,,Lexington,KY,41°/24°,66°/43°,86°/66°,68°/45°,119,190
+157085,University of Kentucky,UK,Lexington,KY,41°/24°,66°/43°,86°/66°,68°/45°,119.4,190
+155317,University of Kansas,KU,Lawrence,KS,39°/18°,66°/43°,89°/68°,68°/44°,91.5,211
+178396,University of Missouri-Columbia,Mizzou,Columbia,MO,39°/21°,66°/44°,88°/68°,68°/45°,110,192
+156745,Georgetown College,,Georgetown,KY,41°/24°,66°/44°,86°/66°,68°/45°,126,193
+163286,University of Maryland-College Park,UMD,College Park,MD,43°/26°,66°/44°,89°/69°,69°/46°,112,202
+163976,St. John's College,,Annapolis,MD,43°/28°,66°/46°,87°/70°,68°/51°,110,108
+164155,United States Naval Academy,USNA,Annapolis,MD,43°/28°,66°/46°,87°/70°,68°/51°,113,213
+110635,University of California-Berkeley,UC Berkeley; UCB,Berkeley,CA,58°/44°,66°/49°,72°/55°,72°/53°,67,256
+200004,Western Carolina University,WCU,Cullowhee,NC,48°/24°,67°/40°,83°/61°,68°/42°,137,212
+150756,Hanover College,,Hanover,IN,41°/21°,67°/41°,86°/64°,69°/43°,98,194
+199111,University of North Carolina at Asheville,UNCA; UNC Asheville,Asheville,NC,47°/25°,67°/42°,84°/62°,68°/43°,118,212
+199865,Warren Wilson College,,Swannanoa,NC,48°/26°,67°/42°,84°/63°,68°/44°,125,212
+155399,Kansas State University,KSU,Manhattan,KS,40°/17°,67°/42°,90°/68°,69°/43°,91,218
+164076,Towson University,,Towson,MD,42°/25°,67°/43°,87°/66°,68°/46°,121,212
+162654,Goucher College,,Baltimore,MD,42°/25°,67°/43°,87°/66°,68°/46°,122,213
+178411,Missouri University of Science and Technology,MUST,Rolla,MO,41°/21°,67°/44°,88°/67°,68°/45°,193,115
+156408,Centre College,,Danville,KY,42°/25°,67°/44°,86°/66°,69°/46°,106,188
+163851,Salisbury University,,Salisbury,MD,46°/27°,67°/44°,88°/67°,70°/47°,108,207
+131159,American University,,Washington,DC,43°/27°,67°/45°,89°/69°,69°/48°,114,203
+131283,Catholic University of America,,Washington,DC,43°/27°,67°/45°,89°/69°,69°/48°,114,203
+131469,George Washington University,GWU,Washington,DC,43°/27°,67°/45°,89°/69°,69°/48°,114,203
+131520,Howard University,,Washington,DC,43°/27°,67°/45°,89°/69°,69°/48°,114,203
+221519,The University of the South,,Sewanee,TN,45°/26°,67°/45°,85°/65°,69°/46°,119,204
+234076,University of Virginia-Main Campus,UVA,Charlottesville,VA,44°/26°,67°/45°,86°/67°,67°/47°,108,219
+179159,Saint Louis University,SLU,Saint Louis,MO,40° 23°,67°/46°,89°69°,69°/47°,105,202
+162928,Johns Hopkins University,JHU,Baltimore,MD,43°/27°,67°/46°,88°/69°,68°/49°,114,213
+163268,University of Maryland-Baltimore County,UMBC,Baltimore,MD,43°/27°,67°/46°,88°/69°,68°/49°,114,213
+163046,Loyola University Maryland,,Baltimore,MD,43°/27°,67°/46°,88°/69°,88°/69°,114,213
+179867,Washington University in St Louis,,Saint Louis,MO,40°/23°,67°/47°,89°/70°,69°/48°,102,202
+110422,California Polytechnic State University-San Luis Obispo,,San Luis Obispo,CA,62°/43°,67°/47°,74°/54°,73°/51°,51,287
+125727,Westmont College,,Santa Barbara,CA,63°/43°,67°/49°,73°/58°,72°/53°,38,282
+110705,University of California-Santa Barbara,UCSB: UC Santa Barbara,Santa Barbara,CA,63°/43°,67°/49°,73°/58°,72°/53°,38,283
+237525,Marshall University,,Huntington,WV,43°/24°,68°/42°,68°/42°,69°/43°,135,162
+232681,University of Mary Washington,,Fredericksburg,VA,45°/24°,68°/42°,88°/66°,70°/44°,117,198
+156620,Eastern Kentucky University,EKU,Richmond,KY,43°/24°,68°/43°,86°/65°,69°/45°,119,190
+233426,Roanoke College,,Salem,VA,46°/26°,68°/44°,87°/65°,69°/46°,121,210
+156125,Wichita State University,,Wichita,KS,43°/22°,68°/45°,92°/69°,70°/46°,79.5,225
+157289,University of Louisville,UL,Louisville,KY,42°/26°,68°/46°,88°/68°,69°/47°,115,195
+122436,University of San Diego,USD,San Diego,CA,66°/49°,68°/56°,75°/65°,73°/61°,38,263
+123572,Sonoma State University,,Rohnert Park,CA,58°/38°,69°/44°,82°/52°,77°/47°,75,255
+156295,Berea College,,Berea,KY,44°/26°,69°/45°,86°/65°,69°/46°,121,187
+106397,University of Arkansas,,Fayetteville,AR,46°/25°,69°/45°,89°/67°,70°/46°,101,218
+123554,Saint Mary's College of California,,Moraga,CA,57°/40°,69°/46°,69°/46°,75°50°,66,260
+231624,College of William and Mary,W&M,Williamsburg,VA,48°/30°,69°/47°,88°/69°,71°/51°,212,116
+243744,Stanford University,,Stanford,CA,58°/41°,69°/47°,80°/57°,74°/51°,61,260
+122755,San Jose State University,SJSU,San Jose,CA,58°/42°,69°/48°,82°/58°,74°/52°,62,257
+232982,Old Dominion University,,Norfolk,VA,49°/33°,69°/49°,88°/72°,88°/72°,115,215
+122931,Santa Clara University,SCU,Santa Clara,CA,58°/42°,69°/49°,80°/58°,74°53°,63,261
+234207,Washington and Lee University,W&L,Lexington,VA,46°/23°,70°/40°,88°/64°,70°/43°,102.8,218
+234085,Virginia Military Institute,VMI,Lexington,VA,46°/23°,70°/40°,88°/64°,70°/43°,103,218
+482680,University of North Georgia,UNG,Dahlonega,GA,50°/26°,70°/41°,86°/63°,71°/44°,117,222
+221759,The University of Tennessee-Knoxville,UTK,Knoxville,TN,47°/28°,70°/45°,88°/68°,82°/59°,127,204
+233295,Randolph-Macon College,,Ashland,VA,47°/27°,70°/45°,89°/68°,70°/47°,107,207
+219709,Belmont University,,Nashville,TN,47°/27°,70°/45°,89°/68°,72°/46°,120,208
+234030,Virginia Commonwealth University,VCU,Richmond,VA,47°/28°,70°/45°,90°/68°,71°/47°,112,210
+199847,Wake Forest University,WFU,Winston-Salem,NC,48°/27°,70°/45°,87°/67°,70°/47°,107.1,216
+221999,Vanderbilt University,,Nashville,TN,47°/27°,70°/46°,89°/68°,72°/47°,117,205
+233374,University of Richmond,UR,University of Richmond,VA,47°/28°,70°/46°,89°/68°,70°/48°,111.9,211
+157401,Murray State University,,Murray,KY,45°/27°,70°/47°,89°/69°,71°48°,109,197
+231712,Christopher Newport University,,Newport News,VA,49°/33°,70°/49°,89°/71°,71°/53°,113,215
+122409,San Diego State University,SDSU,San Diego,CA,67°/46°,70°/53°,79°/64°,75°/57°,38,266
+123961,University of Southern California,USC,Los Angeles,CA,66°/48°,70°/53°,79°/63°,75°/58°,32,292
+187985,University of New Mexico-Main Campus,UNM,Albuquerque,NM,49°/24°,71°/40°,92°/63°,71°/43°,57,280
+110714,University of California-Santa Cruz,UCSC; UC Santa Cruz,Santa Cruz,CA,61°/39°,71°/44°,82°/53°,76°/47°,68,260
+199120,University of North Carolina at Chapel Hill,UNC Chapel Hill,Chapel Hill,NC,50°/29°,71°/46°,89°/69°,72°/48°,114,216
+199148,University of North Carolina at Greensboro,UNCG; UNC Greensboro,Greensboro,NC,49°/30°,71°/47°,89°/69°,71°/49°,111,217
+110583,California State University-Long Beach,,Long Beach,CA,67°/46°,71°/53°,79°/63°,76°/58°,32,287
+207388,Oklahoma State University-Main Campus,,Stillwater,OK,48°/23°,72°/45°,93°/70°,73°/47°,68,268
+221740,The University of Tennessee-Chattanooga,UTC,Chattanooga,TN,50°/29°,72°/46°,89°/68°,73°/48°,99,207
+198385,Davidson College,,Davidson,NC,51°/28°,72°/46°,89°/68°,72°/47°,107,214
+198516,Elon University,,Elon,NC,49°/28°,72°/46°,89°/68°,72°/47°,111,216
+107080,Hendrix College,,Conway,AR,49°/26°,72°/46°,92°/69°,74°/47°,97,219
+198419,Duke University,,Durham,NC,50°/30°,72°/46°,89°/69°,72°/48°,109,220
+199193,North Carolina State University at Raleigh,NC State; NCSU,Raleigh,NC,51°/30°,72°/47°,90°/69°,72°/49°,108,213
+198695,High Point University,,High Point,NC,50°/30°,72°/47°,89°/69°,72°/49°,111,217
+199139,University of North Carolina at Charlotte,UNCC; UNC Charlotte,Charlotte,NC,51°/30°,72°/47°,90°/69°,72°/49°,105,218
+139959,University of Georgia,UGA,Athens,GA,53°/32°,72°/48°,90°/69°,73°/51°,111.6,218
+218070,Furman University,,Greenville,SC,51°/31°,72°/48°,90°/69°,72°/50°,105,220
+207971,University of Tulsa,,Tulsa,OK,48°/26°,72°/48°,93°/71°,73°/49°,79,230
+207500,University of Oklahoma-Norman Campus,,Norman,OK,49°/26°,72°/48°,93°/71°,73°/49°,79.6,235
+120254,Occidental College,Oxy,Los Angeles,CA,67°/46°,72°/51°,84°/62°,78°/56°,34,184
+220862,University of Memphis,,Memphis,TN,49°/31°,72°/51°,91°/73°,74°/52°,110.9,214
+221351,Rhodes College,,Memphis,TN,49°/30°,72°/51°,91°/72°,74°/51°,108,218
+117946,Loyola Marymount University,LMU,Los Angeles,CA,67°/46°,72°/51°,84°/62°,78°/56°,34,284
+110662,University of California-Los Angeles,UCLA,Los Angeles,CA,67°/46°,72°/51°,84°/62°,78°/56°,34,284
+222983,Austin College,,Sherman,TX,52°/32°,72°/52°,92°/73°,75°/54°,80,227
+110653,University of California-Irvine,UCI; UC Irvine,Irvine,CA,68°/46°,72°/53°,82°/64°,78°/57°,36,281
+139144,Berry College,,Mount Berry,GA,52°/30°,73°/47°,90°/69°,74°/48°,102,216
+110644,University of California-Davis,UC Davis,Davis,CA,54°/39°,73°/47°,94°/59°,79°/50°,67,265
+217882,Clemson University,,Clemson,SC,53°/31°,73°/48°,90°/69°,73°/50°,108,222
+121150,Pepperdine University,,Malibu,CA,67°/45°,73°/49°,86°/59°,79°/54°,36,181
+139940,Georgia State University,GSU,Atlanta,GA,52°/33°,73°/49°,88°/70°,73°/52°,109,217
+140553,Morehouse College,,Atlanta,GA,52°/33°,73°/49°,88°/70°,73°/52°,109,217
+141060,Spelman College,,Atlanta,GA,52°/33°,73°/49°,88°/70°,73°/52°,109,217
+138600,Agnes Scott College,,Decatur,GA,52°/33°,73°/49°,88°70°,72°/52°,109,218
+231059,Saint Michael's College,,Colchester,VT,67°/45°,73°/49°,86°/59°,79°/54°,36,281
+195474,Siena College,,Loudonville,NY,67°/45°,73°/49°,86°/59°,79°/54°,36,281
+399911,Soka University of America,,Aliso Viejo,CA,67°/43°,73°/49°,73°/49°,78°/54°,37,281
+445188,University of California-Merced,,Merced,CA,54°/37°,74°/45°,95°/60°,79°/48°,55,262
+120883,University of the Pacific,,Stockton,CA,55°/38°,74°/46°,93°/59°,79°/49°,59.6,261
+218539,Presbyterian College,,Clinton,SC,53°/30°,74°/47°,91°/69°,74°/48°,100,221
+218964,Winthrop University,,Rock Hill,SC,52°/31°,74°/48°,91°/70°,73°/50°,99,214
+176017,University of Mississippi,Ole Miss,University,MS,52°/29°,74°/48°,92°/70°,76°/49°,103,215
+100937,Birmingham Southern College,,Birmingham,AL,54°/32°,74°/49°,90°/70°,75°/51°,112,213
+100663,University of Alabama at Birmingham,,Birmingham,AL,54°/32°,74°/49°,90°/70°,75°/51°,112,213
+199218,University of North Carolina Wilmington,UNCW; UNC Wilmington,Wilmington,NC,56°/34°,74°/50°,90°/72°,76°/54°,119,215
+198464,East Carolina University,ECU,Greenville,NC,54°/34°,74°/50°,90°/71°,75°/52°,109,216
+218724,Coastal Carolina University,,Conway,SC,56°/34°,74°/51°,89°/72°,76°/54°,106,212
+111948,Chapman University,,Orange,CA,69°/46°,74°/52°,85°/63°,80°/57°,35,277
+110565,California State University-Fullerton,,Fullerton,CA,69°/46°,74°/52°,85°/64°,80°/57°,32,283
+110404,California Institute of Technology,Caltech,Pasadena,CA,68°/45°,74°/52°,88°/64°,81°/56°,40,286
+217864,Citadel Military College of South Carolina,,Charleston,SC,58°/39°,74°/56°,90°/75°,77°/59°,106,209
+217819,College of Charleston,,Charleston,SC,58°/39°,74°/56°,90°/75°,77°/59°,106,209
+187967,New Mexico Institute of Mining and Technology,,Socorro,NM,53°/21°,75°/39°,93°/62°,75°/40°,47,280
+218973,Wofford College,,Spartanburg,SC,53°/27°,75°/43°,91°/66°,74°/46°,109,221
+110556,California State University-Fresno,,Fresno,CA,55°/38°,75°/48°,98°/66°,80°/52°,48,271
+100858,Auburn University,,Auburn,AL,56°/33°,75°/49°,90°/70°,76°/53°,108,217
+110529,California State Polytechnic University-Pomona,,Pomona,CA,67°/42°,75°/49°,91°/62°,81°/54°,32,285
+176080,Mississippi State University,MSU,Mississippi State,MS,53°/31°,75°/50°,92°/71°,76°/51°,100,216
+227216,University of North Texas,UNT,Denton,TX,56°/32°,75°/52°,96°/73°,78°/54°,75,228
+125763,Whittier College,,Whittier,CA,69°/47°,75°/53°,85°/64°,80°/58°,27,278
+228787,The University of Texas at Dallas,UT; UT Dallas,Richardson,TX,56°/34°,75°/54°,95°/74°,78°/56°,80,230
+224323,University of Dallas,,Irving,TX,55°/35°,75°/54°,95°/75°,78°/56°,79,232
+110671,University of California-Riverside,UC Riverside,Riverside,CA,68°/42°,76°/49°,94°/63°,83°/54°,34,277
+140447,Mercer University,,Macon,GA,57°/34°,76°/50°,92°/70°,77°/53°,102,119
+100751,The University of Alabama,,Tuscaloosa,AL,55°/34°,76°/50°,92°/71°,77°/52°,107,214
+112260,Claremont McKenna College,,Claremont,CA,67°/43°,76°/50°,92°/63°,81°/55°,32,282
+115409,Harvey Mudd College,,Claremont,CA,67°/43°,76°/50°,92°/63°,81°/55°,32,282
+121257,Pitzer College,,Claremont,CA,67°/43°,76°/50°,92°/63°,81°/55°,32,282
+121345,Pomona College,,Claremont,CA,67°/43°,76°/50°,76°/50°,81°/55°,32,282
+123165,Scripps College,,Claremont,CA,67°/43°,76°/50°,92°/63°,81°/55°,32,282
+175980,Millsaps College,,Jackson,MS,57°/35°,76°/52°,92°/71°,78°/53°,104,211
+228875,Texas Christian University,,Fort Worth,TX,57°/35°,76°/54°,96°/74°,78°/56°,79,229
+228769,The University of Texas at Arlington,UT,Arlington,TX,57°/34°,76°/54°,95°/74°,78°/55°,77,235
+228246,Southern Methodist University,SMU,Dallas,TX,56°/36°,76°/55°,95°/75°,78°/56°,78,234
+236595,Seattle University,,Seattle,WA,48°/37°,76°/57°,76°/57°,60°/46°,155,152
+121691,University of Redlands,,Redlands,CA,68°/40°,77°/47°,97°/61°,84°/52°,38,282
+139861,Georgia College & State University,GCSU,Milledgeville,GA,57° /3°,77°/49°,93°/70°,77°/52°,96,219
+223232,Baylor University,,Waco,TX,59°/35°,77°/54°,95°/74°,80°/56°,76,230
+136172,University of North Florida,,Jacksonville,FL,64°/46°,77°/59°,91°/74°,80°/65°,112,221
+139931,Georgia Southern University,,Statesboro,GA,59°/36°,78°/51°,93°/71°,79°/54°,99,214
+218663,University of South Carolina-Columbia,USC,Columbia,SC,57°/36°,78°/52°,94°/72°,77°/54°,108.9,218
+182281,University of Nevada-Las Vegas,UNLV,Las Vegas,NV,58°/37°,78°/53°,104°/78°,80°/56°,26,294
+227881,Sam Houston State University,,Huntsville,TX,60°/40°,78°/56°,93°/73°,81°/58°,82,204
+160658,University of Louisiana at Lafayette,,Lafayette,LA,61°/42°,78°/58°,91°/73°,80°/59°,108,217
+188030,New Mexico State University-Main Campus,NMSU,Las Cruces,NM,58°/27°,78°44°,95°/67°,79°/46°,43,293
+228343,Southwestern University,,Georgetown,TX,60°/36°,79°/54°,95°/72°,81°/56°,73,229
+228723,Texas A & M University-College Station,,College Station,TX,61°/39°,79°/56°,95°/73°,82°/58°,90,209
+159391,Louisiana State University,LSU,Baton Rouge,LA,61°/40°,79°/56°,92°/73°,80°/57°,109,214
+228778,The University of Texas at Austin,UT; UT Austin,Austin,TX,61°/38°,79°/56°,95°/73°,81°/58°,79,228
+133553,Embry-Riddle Aeronautical University-Daytona Beach,,Daytona Beach,FL,68°/47°,79°/59°,90°/73°,82°/66°,119,229
+227757,Rice University,,Houston,TX,63°43°,79°/60°,93°/75°,82°/61°,90,204
+225511,University of Houston,UH,Houston,TX,63°/45°,79°/61°,92°/76°,82°/63°,86,204
+160755,Tulane University of Louisiana,,New Orleans,LA,62°/45°,79°/61°,92°/76°,80°/64°,108,216
+133650,Florida Agricultural and Mechanical University,Florida A&M,Tallahassee,FL,64°/39°,80°/52°,92°/71°,82°/57°,103,233
+134097,Florida State University,FSU,Tallahassee,FL,64°/39°,80°/52°,92°/71°,82°/57°,103,233
+228459,Texas State University,,San Marcos,TX,62°/39°,80°/57°,94°/73°,82°/58°,83,232
+134130,University of Florida,UF,Gainesville,FL,67°/41°,81°/54°,92°/71°,82°/59°,113,224
+229267,Trinity University,,San Antonio,TX,63°/41°,81°/58°,94°/74°,82°/60°,83,220
+133881,Florida Institute of Technology,FIT,Melbourne,FL,72°/49°,81°/59°,91°/73°,84°/67°,122,236
+137847,The University of Tampa,,Tampa,FL,70°/53°,81°/64°,91°/76°,84°/69°,102,244
+133492,Eckerd College,,Saint Petersburg,FL,70°/53°,81°/64°,91°/76°,84°/69°,103,244
+133951,Florida International University,FIU,Miami,FL,75°/61°,81°/69°,89°/78°,85°/74°,129,248
+137546,Stetson University,,DeLand,FL,70°/47°,82°/58°,82°/58°,84°/65°,120,232
+136950,Rollins College,,Winter Park,FL,71°/49°,82°/61°,92°/75°,84°/67°,117,238
+262129,New College of Florida,,Sarasota,FL,72°/51°,82°/61°,91°/74°,85°/67°,106,251
+137351,University of South Florida-Main Campus,USF,Tampa,FL,71°/51°,82°/62°,91°/75°,85°/68°,109,244
+133669,Florida Atlantic University,FAU,Boca Raton,FL,76°/58°,82°/66°,90°/76°,86°/72°,144,234
+135726,University of Miami,UM; UMiami,Coral Gables,FL,75°/61°,82°/69°,89°/78°,85°/74°,130,249
+104179,University of Arizona,,Tucson,AZ,66°/39°,83°/51°,100°/74°,86°/56°,52,286
+132903,University of Central Florida,UCF,Orlando,FL,71°/49°,83°/60°,92°/74°,85°/66°,114,233
+134079,Florida Southern College,,Lakeland,FL,73°/50°,84°/60°,92°/73°,85°/66°,115,240
+190150,Columbia University in the City of New York,,New York,NY,39°/26°,84°/69°,84°/69°,64°/50°,119,224
+104151,Arizona State University-Tempe,ASU,Tempe,AZ,68°/42°,85°/55°,104° /78°,88°/59°,36,300
+126818,Colorado State University-Fort Collins,CSU,Fort Collins,CO,44°/15°,87°/57°,87°/57°,64°/34°,237,237
+163912,St. Mary's College of Maryland,,St. Mary's City,MD,45°/28°,88°/70°,88°/70°,69°/51°,120,205
