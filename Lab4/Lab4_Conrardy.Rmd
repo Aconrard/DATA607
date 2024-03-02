@@ -1,0 +1,269 @@
+---
+title: "The normal distribution"
+author: "Anthony Conrardy"
+date:   "2024-03-03"
+output:
+  pdf_document: default
+  html_document:
+    includes:
+      in_header: header.html
+    css: ./lab.css
+    highlight: pygments
+    theme: cerulean
+    toc: true
+    toc_float: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r echo = FALSE}
+knitr::opts_chunk$set(eval = TRUE, message = FALSE, warning = FALSE)
+```
+
+In this lab, you'll investigate the probability distribution that is most central to statistics: the normal distribution.  If you are confident that your data are nearly normal, that opens the door to many powerful statistical methods.  Here we'll use the graphical tools of R to assess the normality of our data and also 
+learn how to generate random numbers from a normal distribution.
+
+## Getting Started
+
+### Load packages
+
+In this lab, we will explore and visualize the data using the **tidyverse** suite of packages as well as the **openintro** package.
+
+Let's load the packages.
+
+```{r load-packages, message=FALSE}
+library(tidyverse)
+library(openintro)
+```
+
+### The data
+
+This week you'll be working with fast food data.  This data set contains data on 515 menu items from some of the most popular fast food restaurants worldwide. Let's take a quick peek at the first few rows of the data.
+
+Either you can use `glimpse` like before, or `head` to do this.
+
+```{r load-data, results=TRUE}
+library(tidyverse)
+library(openintro)
+data("fastfood", package='openintro')
+head(fastfood)
+```
+
+You'll see that for every observation there are 17 measurements, many of which are nutritional facts.
+
+You'll be focusing on just three columns to get started: restaurant, calories, calories from fat.
+
+Let's first focus on just products from McDonald's and Dairy Queen.
+
+```{r}
+mcdonalds <- fastfood %>%
+  filter(restaurant == "Mcdonalds")
+dairy_queen <- fastfood %>%
+  filter(restaurant == "Dairy Queen")
+```
+
+1.  Make a plot (or plots) to visualize the distributions of the amount of calories from fat of the options from these two restaurants.  How do their centers, shapes, and spreads compare?
+
+```{r ggplot histogram}
+ggplot(mcdonalds, aes(x=cal_fat)) +
+         geom_histogram(fill="dark red")
+ggplot(dairy_queen, aes(x=cal_fat)) +
+         geom_histogram(fill="dark green")
+```
+
+**While the plots appear quite different, they do have some similarities.  Both the Dairy Queen and McDonald's calories appear to have centers around 220.  By checking the median of both fast food chains, we find that Dairy Queen is 220 calories from fat, while McDonald's is 240.  They both have somewhat of a normal shape for certain portions of the histogram, but they also have outliers to the right. Dairy Queen has all of the values within 700 calories, while McDonald's maximum is 1270 calories from fat.**
+
+## The normal distribution
+
+In your description of the distributions, did you use words like *bell-shaped*or *normal*?  It's tempting to say so when faced with a unimodal symmetric distribution.
+
+To see how accurate that description is, you can plot a normal distribution curve on top of a histogram to see how closely the data follow a normal distribution. This normal curve should have the same mean and standard deviation as the data. You'll be focusing on calories from fat from Dairy Queen products, so let's store them as a separate object and then calculate some statistics that will be referenced 
+later. 
+
+```{r}
+dqmean <- mean(dairy_queen$cal_fat)
+dqsd   <- sd(dairy_queen$cal_fat)
+```
+
+Next, you make a density histogram to use as the backdrop and use the `lines` function to overlay a normal probability curve. The difference between a frequency histogram and a density histogram is that while in a frequency histogram the *heights* of the bars add up to the total number of observations, in a density histogram the *areas* of the bars add up to 1. The area of each bar can be calculated as simply the height *times* the width of the bar. Using a density histogram allows us to properly overlay a normal distribution curve over the histogram since the curve is a normal probability density function that also has area under the curve of 1. Frequency and density histograms both display the same exact shape; they only differ in their y-axis. You can verify this by comparing the frequency histogram you constructed earlier and the density histogram created by the commands below.
+
+```{r}
+ggplot(data = dairy_queen, aes(x = cal_fat)) +
+        geom_blank() +
+        geom_histogram(aes(y = after_stat(density))) +
+        stat_function(fun = dnorm, args = c(mean = dqmean, sd = dqsd), col = "tomato")
+```
+
+After initializing a blank plot with `geom_blank()`, the `ggplot2` package (within the `tidyverse`) allows us to add additional layers. The first layer is a density histogram. The second layer is a statistical function -- the density of the normal curve, `dnorm`. We specify that we want the curve to have the same mean and standard deviation as the column of fat calories. The argument `col` simply sets the color for the line to be drawn. If we left it out, the line would be drawn in black.
+
+2.  Based on the this plot, does it appear that the data follow a nearly normal 
+    distribution?
+
+**As mentioned in the following section, it is difficult to interpret the what the term nearly normal means.  Does that mean almost perfectly normal, or does it mean somewhat "bell shaped".  However, despite the outliers to the right, I feel the result is nearly normal with only 42 observations, with a peak near the median/mean of the data.**
+
+## Evaluating the normal distribution
+
+Eyeballing the shape of the histogram is one way to determine if the data appear to be nearly normally distributed, but it can be frustrating to decide just how close the histogram is to the curve. An alternative approach involves constructing a normal probability plot, also called a normal Q-Q plot for "quantile-quantile".
+
+```{r}
+ggplot(data = dairy_queen, aes(sample = cal_fat)) + 
+  geom_line(stat = "qq") +
+  stat_qq_line(color="tomato")
+```
+
+This time, you can use the `geom_line()` layer, while specifying that you will be creating a Q-Q plot with the `stat` argument. It's important to note that here, instead of using `x` instead `aes()`, you need to use `sample`.
+
+The x-axis values correspond to the quantiles of a theoretically normal curve with mean 0 and standard deviation 1 (i.e., the standard normal distribution).  The y-axis values correspond to the quantiles of the original unstandardized sample data. However, even if we were to standardize the sample data values, the Q-Q plot would look identical. A data set that is nearly normal will result in a probability plot where the points closely follow a diagonal line.  Any deviations from normality leads to deviations of these points from that line.
+
+The plot for Dairy Queen's calories from fat shows points that tend to follow the line but with some errant points towards the upper tail.  You're left with the same problem that we encountered with the histogram above: how close is close enough?
+
+A useful way to address this question is to rephrase it as: what do probability plots look like for data that I *know* came from a normal distribution?  We can answer this by simulating data from a normal distribution using `rnorm`.
+
+```{r}
+sim_norm <- rnorm(n = nrow(dairy_queen), mean = dqmean, sd = dqsd)
+```
+
+The first argument indicates how many numbers you'd like to generate, which we specify to be the same number of menu items in the `dairy_queen` data set using the `nrow()` function.  The last two arguments determine the mean and standard deviation of the normal distribution from which the simulated sample will be generated.  You can take a look at the shape of our simulated data set, `sim_norm`, as well as its normal probability plot.
+
+3.  Make a normal probability plot of `sim_norm`.  Do all of the points fall on the line?  How does this plot compare to the probability plot for the real data? (Since `sim_norm` is not a data frame, it can be put directly into the `sample` argument and the `data` argument can be dropped.)
+
+```{r}
+ggplot(, aes(sample = sim_norm)) + 
+  geom_line(stat = "qq") +
+  stat_qq_line(color="tomato")
+```
+**While not a perfect match, we see a deviations from the reference line that is similar for both the real data and that created with the simulation data.  However, there is a much larger deviation noted on the upper end for the real Dairy Queen data as opposed to the simulated data. Once again, I would say that the data is not perfectly normal, but still appears somewhat normal.**
+
+Even better than comparing the original plot to a single plot generated from a normal distribution is to compare it to many more plots using the following function. It shows the Q-Q plot corresponding to the original data in the top left corner, and the Q-Q plots of 8 different simulated normal data.  It may be helpful to click the zoom button in the plot window.
+
+```{r}
+openintro::qqnormsim(sample = cal_fat, data = dairy_queen)
+DATA606::qqnormsim(dairy_queen$cal_fat)
+```
+
+4.  Does the normal probability plot for the calories from fat look similar to the plots 
+    created for the simulated data?  That is, do the plots provide evidence that the
+    calories are nearly normal?
+
+**There are some simulation plots that look very similar to that of the original data, while others are not.  However, based upon what is obtained from the simulated sets, I am confident that our data from Dairy Queen is nearly normal.**
+
+5.  Using the same technique, determine whether or not the calories from McDonald's
+    menu appear to come from a normal distribution.
+```{r}
+ggplot(data = mcdonalds, aes(x = cal_fat)) +
+        geom_blank() +
+        geom_histogram(aes(y = after_stat(density))) +
+        stat_function(fun = dnorm, args = c(mean = dqmean, sd = dqsd), col = "tomato")
+
+ggplot(data = mcdonalds, aes(sample = cal_fat)) + 
+  geom_line(stat = "qq") +
+  stat_qq_line(color="tomato")
+
+sim_norm <- rnorm(n = nrow(mcdonalds), mean = dqmean, sd = dqsd)
+
+openintro::qqnormsim(sample = cal_fat, data = mcdonalds)
+DATA606::qqnormsim(mcdonalds$cal_fat)
+```
+**While the Dairy Queen data was more marginal and could be argued to be nearly normal, the McDonald's data is a little more concerning.  We observe a much more severe deviation from the reference line on the QQ plots that are not replicated in any of the simulation data plots.  This could be due to the higher number of outliers with larger calories from fat that are occurring to the right of the curve.  This data could be possibly closer to normal if the outliers were excluded, but as a whole I would be concerned and say that the McDonald's data is not nearly normal.**
+
+## Normal probabilities
+
+Okay, so now you have a slew of tools to judge whether or not a variable is normally distributed.  Why should you care?
+
+It turns out that statisticians know a lot about the normal distribution. Once you decide that a random variable is approximately normal, you can answer all sorts of questions about that variable related to probability.  Take, for example, the question of, "What is the probability that a randomly chosen Dairy Queen product has more than 600 calories from fat?"
+
+If we assume that the calories from fat from Dairy Queen's menu are normally distributed (a very close approximation is also okay), we can find this probability by calculating a Z score and consulting a Z table (also called a normal probability table).  In R, this is done in one step with the function `pnorm()`.
+
+```{r}
+1 - pnorm(q = 600, mean = dqmean, sd = dqsd)
+```
+
+Note that the function `pnorm()` gives the area under the normal curve below a given value, `q`, with a given mean and standard deviation.  Since we're interested in the probability that a Dairy Queen item has more than 600 calories from fat, we have to take one minus that probability.
+
+Assuming a normal distribution has allowed us to calculate a theoretical probability.  If we want to calculate the probability empirically, we simply need to determine how many observations fall above 600 then divide this number by the total sample size.
+
+```{r}
+dairy_queen %>% 
+  filter(cal_fat > 600) %>%
+  summarise(percent = n() / nrow(dairy_queen))
+```
+
+Although the probabilities are not exactly the same, they are reasonably close. The closer that your distribution is to being normal, the more accurate the theoretical probabilities will be.
+
+6.  Write out two probability questions that you would like to answer about any of the restaurants in this dataset.  Calculate those probabilities using both the theoretical normal distribution as well as the empirical distribution (four probabilities in all).  Which one had a closer agreement between the two methods?
+
+**Probability Questions**
+
+What is the probability that a randomly chosen food item from Subway has protein greater than or equal to 30 grams (FDA recommends for 15-30 for an individual meal)?
+
+What is the probability that a randomly chosen food item from Subway is greater than or equal to 14 grams (FDA recommends 14 grams per 1000 calories consumed)?
+
+```{r echo=FALSE}
+Subway <- fastfood %>%
+  filter(restaurant == "Subway")
+
+subwaymean <- mean(Subway$protein)
+subwaysd   <- sd(Subway$protein)
+
+subwaymeanfiber <- mean(Subway$fiber)
+subwaysdfiber   <- sd(Subway$fiber)
+```
+
+```{r}
+# Subway Theoretical
+1 - pnorm(q = 30, mean = subwaymean, sd = subwaysd)
+
+# Subway Empirical
+Subway |> 
+  filter(protein >= 30) |> 
+  summarise(percent = n() / nrow(Subway))
+
+# Subway Theoretical
+1 - pnorm(q = 14, mean = subwaymeanfiber, sd = subwaysdfiber)
+
+# Subway Empirical
+Subway |> 
+  filter(fiber >= 14) |> 
+  summarise(percent = n() / nrow(Subway))
+```
+**In this particular experiment, the closer agreement occurred looking at the fiber content of the Subway food items.  There was an approximately 3% difference in probability of randomly selecting the food item with a fiber content at or above 14 grams, while there was a 5.5% difference in probability of selecting a food item with a protein content of 30 grams or higher.**
+
+* * *
+
+## More Practice
+
+7.  Now let's consider some of the other variables in the dataset.  Out of all the different restaurants, which ones' distribution is the closest to normal for sodium
+
+```{r}
+ggplot(fastfood, aes(sample=sodium)) +
+  geom_qq()+
+  facet_wrap(~restaurant, scales = "free") +
+  geom_line(stat = "qq") +
+  stat_qq_line(color="tomato")
+```
+
+
+**For this particular question I constructed QQ plots for each of the restaurants and then evaluated each to see how nearly normal.  The wide deviation from the reference line for most of the restaurants eliminate them from being closest to normal (Chick-Fil_A, Dairy Queen, McDonald's, Sonic, Burger King and Subway), leaving Arbys and Taco Bell.  The deviation on the left side of the curve for Taco Bell appears to be greater than that of Arbys, so for this question I would say that Arbys was the most normal with respect food item sodium content.**
+
+8.  Note that some of the normal probability plots for sodium distributions seem to have a step-wise pattern. why do you think this might be the case?
+
+```{r}
+ggplot(fastfood, aes(x = sodium)) +
+        geom_histogram() +
+        facet_wrap(~restaurant, ncol = 2)
+```
+**There are a couple of reasons that this may occur.  First, the existence of outliers can cause a problem extending out the patterns.  Secondly, the sample size and how the bins are set for the data may make the patterns seem less continuous and not smooth similar to the full normal plot.  Finally, and most important, the variable may not actually be normal.**
+
+9.  As you can see, normal probability plots can be used both to assess normality and visualize skewness.  Make a normal probability plot for the total carbohydrates from a restaurant of your choice.  Based on this normal probability plot, is this variable left skewed, symmetric, or right skewed? Use a histogram to confirm your findings.
+
+```{r}
+fastfood |> filter(restaurant=="Taco Bell") |> 
+ggplot(aes(x = total_carb)) +
+        geom_histogram(bins = 10)
+
+fastfood |> filter(restaurant=="Taco Bell")|> summarize(meantb=mean(total_carb), mediantb=median(total_carb))
+
+```
+**For this problem I selected to analyze Taco Bell to see if the total carbohydrates in the food items are normally distributed.  The number of bins was arbitrarily set to optimize the visualization.  From what we can observe here, the data does appear to be nearly normal but is skewed to the right, with the right tail being longer and extended as compared to the left.  This indicates that the mean is greater than the median value for Total Carbs.**
+
+* * *
