@@ -1,0 +1,334 @@
+Region:  
+(N=1,000) n %  
+Worcester/West ------------------------------------------------- 245 24.50 
+Northeast ---------------------------------------------------------- 365 36.50 
+Suffolk --------------------------------------------------------------- 79 7.90 
+Southeast/Cape ------------------------------------------------- 311 31.10 
+ 
+Hello, my name is __________ and I am conducting a survey for Suffolk University and I would like to get your opinions on some issues of the day. Would you like to spend less than seven minutes to help us out? {ASK FOR YOUNGEST IN HOUSEHOLD} Great, let me get you screened in. 
+ 
+1. Are you currently a resident of Massachusetts? 
+(N=1,000) n %  
+Yes--------------------------------------------------------------- 1,000 100.00 
+ 
+2. How likely are you to vote in the general election for president this November? (ROTATE ASC-DESC) 
+(N=1,000) n % 
+Very Likely -------------------------------------------------------- 953 95.30 
+Somewhat Likely ------------------------------------------------- 47 4.70 
+ 
+3.  With which gender do you most closely identify as – male, female, or non-binary (gender variant, non-conforming, etc.)?  
+(N=1,000) n % 
+Male ---------------------------------------------------------------- 481 48.10 
+Female ------------------------------------------------------------- 505 50.50 
+Non-binary (gender variant, non-conforming)  -------------------------------------------------- 14 1.40 
+ 
+4. Are you currently registered as a…? 
+(N=1,000) n % 
+Democrat ---------------------------------------------------------- 300 30.00 
+Republican --------------------------------------------------------- 99 9.90 
+Unenrolled / Independent ------------------------------------- 521 52.10 
+Libertarian ------------------------------------------------------------ 8 0.80 
+Something else --------------------------------------------------- 15 1.50 
+Not registered yet ------------------------------------------------ 27 2.70 
+Undecided --------------------------------------------------------- 30 3.00 
+ 
+5. What is your age category? 
+(N=1,000) n % 
+18-24 Years ------------------------------------------------------- 70 7.00 
+25-34 Years ------------------------------------------------------ 143 14.30 
+35-49 Years ------------------------------------------------------ 266 26.60 
+50-64 Years ------------------------------------------------------ 281 28.10 
+65-74 Years ------------------------------------------------------ 155 15.50 
+75 + Years --------------------------------------------------------- 80 8.00 
+Refused --------------------------------------------------------------- 5 0.50 
+ 
+6.   For statistical purposes only, can you please tell me your ethnic background/ancestry? 
+      (READ) 
+(N=1,000) n % 
+White/Caucasian ------------------------------------------------ 716 71.60 
+Black/African American ----------------------------------------- 78 7.80 
+American Indian/Alaska Native ------------------------------- 11 1.10 
+Asian ---------------------------------------------------------------- 58 5.80 
+Native Hawaiian/Other Pacific Islander ----------------------- 3 0.30 
+Hispanic/Latino --------------------------------------------------- 86 8.60 
+2 or more races --------------------------------------------------- 37 3.70 
+Other ------------------------------------------------------------------ 4 0.40 
+Don’t know ----------------------------------------------------------- 7 0.70 
+ 
+7. What is the highest level of education you have completed? (READ) 
+(N=1,000) n % 
+Some high school ------------------------------------------------ 46 4.60 
+High school graduate------------------------------------------- 200 20.00 
+Some college ----------------------------------------------------- 238 23.80 
+Trade/technical/vocational training -------------------------- 56 5.60 
+College graduate ------------------------------------------------ 266 26.60 
+Master’s or PhD ------------------------------------------------- 189 18.90 
+Undecided ----------------------------------------------------------- 1 0.10 
+Refused --------------------------------------------------------------- 4 0.40 
+ 
+8. Do you feel the country is headed in the right direction or is on the wrong track? 
+(N=1,000) n % 
+Right Direction --------------------------------------------------- 274 27.40 
+Wrong Track  ----------------------------------------------------- 605 60.50 
+Undecided -------------------------------------------------------- 121 12.10 
+ 
+(RANDOMIZE Q9-11) 
+9. Overall, do you {ROTATE ASCENDING, DESCENDING} strongly approve, approve, disapprove, or strongly disapprove of the job Joe Biden is doing as president? 
+(N=1,000) n % 
+Strongly approve ------------------------------------------------ 146 14.60 
+Approve ------------------------------------------------------------ 350 35.00 
+Disapprove -------------------------------------------------------- 139 13.90 
+Strongly disapprove -------------------------------------------- 321 32.10 
+Undecided --------------------------------------------------------- 39 3.90 
+Refused --------------------------------------------------------------- 5 0.50 
+ 
+10. Overall, do you {ROTATE ASCENDING, DESCENDING} strongly approve, approve, disapprove, or strongly disapprove of the job Maura Healey is doing as governor? 
+(N=1,000) n % 
+Strongly approve ------------------------------------------------ 150 15.00 
+Approve ------------------------------------------------------------ 390 39.00 
+Disapprove -------------------------------------------------------- 151 15.10 
+Strongly disapprove -------------------------------------------- 159 15.90 
+Undecided -------------------------------------------------------- 144 14.40 
+Refused --------------------------------------------------------------- 6 0.60 
+ 
+11. Overall, do you {ROTATE ASCENDING, DESCENDING} strongly approve, approve, disapprove, or strongly disapprove of the job Elizabeth Warren is doing as U.S. Senator? 
+(N=1,000) n % 
+Strongly approve ------------------------------------------------ 183 18.30 
+Approve ------------------------------------------------------------ 354 35.40 
+Disapprove -------------------------------------------------------- 129 12.90 
+Strongly disapprove -------------------------------------------- 216 21.60 
+Undecided -------------------------------------------------------- 112 11.20 
+Refused --------------------------------------------------------------- 6 0.60 
+ 
+{FOR 4.1} 
+12. Earlier you indicated you were registered as a Democrat. How likely is it that you will vote in the Democratic Primary on March 5th? (ROTATE ASC-DESC) 
+(N=300) n % 
+Very likely --------------------------------------------------------- 212 70.67 
+Somewhat likely -------------------------------------------------- 60 20.00 
+Not very likely ----------------------------------------------------- 14 4.67 
+Not at all likely ---------------------------------------------------- 10 3.33 
+Undecided ----------------------------------------------------------- 4 1.33 
+Refused --------------------------------------------------------------- 0 0.00 
+{FOR 4.2} 
+13. Earlier you indicated you were registered as a Republican. How likely is it that you will vote in the Republican Primary on March 5th? (ROTATE ASC-DESC) 
+(N=99) n % 
+Very likely ---------------------------------------------------------- 82 82.83 
+Somewhat likely -------------------------------------------------- 10 10.10 
+Not very likely ------------------------------------------------------- 4 4.04 
+Not at all likely ------------------------------------------------------ 1 1.01 
+Undecided ----------------------------------------------------------- 2 2.02 
+Refused --------------------------------------------------------------- 0 0.00 
+{FOR 4.4} 
+14. Earlier you indicated you were registered as a Libertarian. How likely is it that you will vote in the Libertarian Primary on March 5th? (ROTATE ASC-DESC) 
+(N=8) n % 
+Very likely ------------------------------------------------------------ 3 37.50 
+Somewhat likely ---------------------------------------------------- 4 50.00 
+Not very likely ------------------------------------------------------- 0 0.00 
+Not at all likely ------------------------------------------------------ 1 12.50 
+Undecided ----------------------------------------------------------- 0 0.00 
+Refused --------------------------------------------------------------- 0 0.00 
+ 
+{FOR 4.3, 4.5, 4.6} 
+15. Earlier you said you were (INSERT). Thinking about the upcoming presidential primary on March 5th do you think you will vote in the Democratic Primary, Republican Primary, Libertarian Primary or will you skip the primaries and just vote next November? 
+(N=563) n % 
+Democratic Primary--------------------------------------------- 118 20.96 
+Republican Primary --------------------------------------------- 195 34.64 
+Libertarian Primary------------------------------------------------- 3 0.53 
+Skip Primaries --------------------------------------------------- 142 25.22 
+Undecided -------------------------------------------------------- 100 17.76 
+Refused --------------------------------------------------------------- 5 0.89 
+  
+ 
+{FOR 12.1, 12.2, 15.1} 
+16. There are three candidates listed on your Democratic Primary ballot in the following order: Dean Phillips, Joe Biden, and Marianne Williamson. At this point, do you plan to vote for Phillips, Biden, or Williamson? 
+(N=390) n % 
+Dean Phillips ------------------------------------------------------ 22 5.64 
+Joe Biden --------------------------------------------------------- 274 70.26 
+Marianne Williamson -------------------------------------------- 21 5.38 
+Undecided --------------------------------------------------------- 69 17.69 
+Refused --------------------------------------------------------------- 4 1.03 
+ 
+{FOR 12.1, 12.2, 15.1} 
+17. How enthusiastic are you about Biden as the Democratic nominee, on a scale of one to 10, where one is very unenthusiastic and 10 is very enthusiastic? 
+(N=390) n % 
+1 - Very unenthusiastic ----------------------------------------- 48 12.31 
+2  ------------------------------------------------------------------ 19 4.87 
+3  ------------------------------------------------------------------ 21 5.38 
+4  ------------------------------------------------------------------ 18 4.62 
+5  ------------------------------------------------------------------ 47 12.05 
+6  ------------------------------------------------------------------ 48 12.31 
+7  ------------------------------------------------------------------ 42 10.77 
+8  ------------------------------------------------------------------ 58 14.87 
+9  ------------------------------------------------------------------ 14 3.59 
+10 - Very enthusiastic ------------------------------------------- 72 18.46 
+Undecided ----------------------------------------------------------- 2 0.51 
+Refused --------------------------------------------------------------- 1 0.26 
+ 
+Mean 6.07 
+ 
+{FOR 13.1, 13.2, 15.2} 
+18. There are seven candidates listed on your Republican Primary ballot, but only two candidates remain: Donald Trump or Nikki Haley. At this point for whom will you vote or toward whom do you lean? 
+(N=287) n % 
+Donald Trump ---------------------------------------------------- 159 55.40 
+Nikki Haley -------------------------------------------------------- 110 38.33 
+Undecided --------------------------------------------------------- 16 5.57  
+Refused --------------------------------------------------------------- 2 0.70 
+ 
+{FOR 13.1, 13.2, 15.2} 
+19. How enthusiastic are you about Trump as the Republican nominee, on a scale of one to 10, where one is very unenthusiastic and 10 is very enthusiastic? 
+(N=287) n % 
+1 - Very unenthusiastic ----------------------------------------- 90 31.36 
+2  -------------------------------------------------------------------- 8 2.79 
+3  -------------------------------------------------------------------- 6 2.09 
+4  -------------------------------------------------------------------- 3 1.05 
+5  ------------------------------------------------------------------ 14 4.88 
+6  -------------------------------------------------------------------- 7 2.44 
+7  ------------------------------------------------------------------ 20 6.97 
+8  ------------------------------------------------------------------ 27 9.41 
+9  ------------------------------------------------------------------ 15 5.23 
+10 - Very enthusiastic ------------------------------------------- 95 33.10 
+Undecided ----------------------------------------------------------- 1 0.35 
+Refused --------------------------------------------------------------- 1 0.35 
+ 
+Mean 5.93 
+{FOR 14.1, 14.2, 15.3} 
+20. There are five candidates listed on your Libertarian Primary ballot in the following order: Jacob Hornberger, Michael Rectenwald, Chase Oliver, Michael Ter Maat, and Lars Mapstead. At this point, do you plan to vote for Hornberger, Rectenwald, Oliver, Ter Maat, or Mapstead? 
+(N=10) n % 
+Jacob Hornberger -------------------------------------------------- 1 10.00 
+Michael Rectenwald ----------------------------------------------- 0 0.00 
+Chase Oliver -------------------------------------------------------- 1 10.00 
+Michael Ter Maat --------------------------------------------------- 0 0.00 
+Lars Mapstead ------------------------------------------------------ 0 0.00 
+Undecided ----------------------------------------------------------- 7 70.00 
+Refused --------------------------------------------------------------- 1 10.00 
+ 
+I’m going to read you the names of seven options for president that may appear on your general election ballot, this November. 
+ 
+21. If the 2024 presidential election were held today, would you vote for (ROTATE) Democrat Joe Biden, Republican Donald Trump, (RANDOMIZE) Green Party Nominee, Libertarian Party Nominee, No Labels Party Nominee, Independent Robert F. Kennedy Jr., or Independent Cornel West? 
+(N=1,000) n % 
+Democrat Joe Biden -------------------------------------------- 454 45.40 
+Republican Donald Trump ------------------------------------ 255 25.50 
+Green Party Nominee ------------------------------------------- 10 1.00 
+Libertarian Party Nominee --------------------------------------- 9 0.90 
+No Labels Party Nominee -------------------------------------- 16 1.60 
+Independent Robert F. Kennedy Jr.  ------------------------ 86 8.60 
+Independent Cornel West -------------------------------------- 22 2.20 
+Undecided -------------------------------------------------------- 128 12.80 
+Refused ------------------------------------------------------------- 20 2.00 
+ 
+I’m going to read you a short list of candidates. For each, please tell me if you have a generally favorable or generally unfavorable opinion of them. {RANDOMIZE} 
+ 
+(N=1,000) NEVER HEARD FAVORABLE UNFAVORABLE HOF/UNDECIDED 
+22. Joe Biden 0 491 454 55 
+ 0.00 49.10 45.40 5.50 
+23. Kamala Harris 16 456 443 85 
+ 1.60 45.60 44.30 8.50 
+24. Donald Trump 0 281 663 56 
+ 0.00 28.10 66.30 5.60 
+25. Nikki Haley 37 346 461 156 
+ 3.70 34.60 46.10 15.60 
+26. Maura Healey 41 525 316 118 
+ 4.10 52.50 31.60 11.80 
+27. Elizabeth Warren 11 535 382 72 
+ 1.10 53.50 38.20 7.20 
+ 
+28. If the election for U.S. Senate were held today and the candidates were Democrat Elizabeth Warren or Republican Jonathan Kraft, for whom would you vote or toward whom do you lean?  
+(N=1,000) n % 
+Democrat Elizabeth Warren ---------------------------------- 557 55.70 
+Republican Jonathan Kraft ------------------------------------ 330 33.00 
+Undecided -------------------------------------------------------- 100 10.00 
+Refused ------------------------------------------------------------- 13 1.30 
+ 
+29. Thinking about your vote for a presidential candidate, what is the most important issue facing the country today? (RANDOMIZE) 
+(N=1,000) n % 
+The economy ----------------------------------------------------- 177 17.70 
+Abortion ------------------------------------------------------------- 47 4.70 
+Gun control -------------------------------------------------------- 47 4.70 
+Climate change --------------------------------------------------- 61 6.10 
+Healthcare --------------------------------------------------------- 58 5.80 
+Immigration and border security ----------------------------- 252 25.20 
+The future of American democracy ------------------------- 271 27.10 
+Crime ---------------------------------------------------------------- 18 1.80 
+Foreign policy ----------------------------------------------------- 44 4.40 
+Undecided --------------------------------------------------------- 23 2.30 
+Refused --------------------------------------------------------------- 2 0.20 
+ 
+30.  By most metrics, economists say the economy is getting better and inflation is going down. Do you see this reflected in your day-to-day life? (ROTATE ASC-DESC) 
+(N=1,000) n % 
+Yes  ----------------------------------------------------------------- 303 30.30 
+Somewhat --------------------------------------------------------- 184 18.40 
+No  ----------------------------------------------------------------- 492 49.20 
+Undecided --------------------------------------------------------- 18 1.80 
+Refused --------------------------------------------------------------- 3 0.30 
+ 
+31.  Of the following four options, what is the biggest threat to U.S. interests? {RANDOMIZE} 
+(N=1,000) n % 
+An expanding war between Ukraine and Russia -------- 177 17.70 
+An expanding war between Israel and Hamas ----------- 196 19.60 
+China’s expanding power across the globe --------------- 282 28.20 
+Illegal immigration ----------------------------------------------- 277 27.70 
+Undecided --------------------------------------------------------- 65 6.50 
+Refused --------------------------------------------------------------- 3 0.30 
+ 
+32.  In the dispute between Israel and the Palestinians, which side do you sympathize with more: (ROTATE) Israel or the Palestinians? 
+(N=1,000) n % 
+Israel --------------------------------------------------------------- 435 43.50 
+Palestinians ------------------------------------------------------- 198 19.80 
+Both equally ------------------------------------------------------ 152 15.20 
+Undecided -------------------------------------------------------- 170 17.00 
+Refused ------------------------------------------------------------- 45 4.50 
+ 
+33. Thinking about the U.S. border and the number of immigrants entering the country, which of the following four statements comes closest to your view? (RANDOMIZE) 
+(N=1,000) n % 
+It’s an emergency situation, and among the most serious issues facing the U.S.  ------------------------- 468 46.80 
+It’s a major problem, but not an emergency -------------- 315 31.50 
+It’s a minor problem I’m not that concerned about ------ 133 13.30 
+It’s not a problem, I am not concerned ---------------------- 53 5.30 
+Undecided --------------------------------------------------------- 27 2.70 
+Refused --------------------------------------------------------------- 4 0.40 
+ 
+ 
+ 
+ 
+ 
+ 
+34. Currently some migrants sheltering at Logan Airport will be moved to the Roxbury Recreational Complex for temporary housing. Do you support or oppose this move? 
+(N=1,000) n % 
+Support ------------------------------------------------------------ 489 48.90 
+Oppose ------------------------------------------------------------ 403 40.30 
+Undecided -------------------------------------------------------- 100 10.00 
+Refused --------------------------------------------------------------- 8 0.80 
+ 
+35. Do you support or oppose a measure to grant temporary work visas to migrants being housed at the Roxbury Recreational Complex? 
+(N=1,000) n % 
+Support ------------------------------------------------------------ 617 61.70 
+Oppose ------------------------------------------------------------ 323 32.30 
+Undecided --------------------------------------------------------- 54 5.40 
+Refused --------------------------------------------------------------- 6 0.60 
+ 
+36. How would you describe your own political viewpoint – very liberal, liberal, moderate, conservative, very conservative?  {ROTATE .1-.5 ASCENDING TO DESCENDING} 
+(N=1,000) n % 
+Very liberal -------------------------------------------------------- 114 11.40 
+Liberal -------------------------------------------------------------- 215 21.50 
+Moderate ---------------------------------------------------------- 356 35.60 
+Conservative ----------------------------------------------------- 188 18.80 
+Very conservative ------------------------------------------------ 65 6.50 
+Other ---------------------------------------------------------------- 27 2.70 
+Don’t know  -------------------------------------------------------- 35 3.50 
+ 
+37. What is your annual household income? 
+(N=1,000) n % 
+Under $20,000 per year ---------------------------------------- 95 9.50 
+Under $50,000 per year --------------------------------------- 162 16.20 
+Under $75,000 per year ---------------------------------------- 88 8.80 
+Under $100,000 per year -------------------------------------- 172 17.20 
+Under $140,000 per year -------------------------------------- 143 14.30 
+$140,000 per year or more ----------------------------------- 229 22.90 
+Undecided -------------------------------------------------------- 111 11.10 
+ 
+ 
+[THANK YOU FOR YOUR TIME.  HAVE A NICE DAY/EVENING.] 
+ 
+  
+ 
+
