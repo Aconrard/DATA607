@@ -1,0 +1,115 @@
+---
+title: "DATA 607-Assignment #7"
+author: "Anthony Conrardy"
+date: "2024-03-10"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rvest)
+library(jsonlite)
+library(xml2)
+library(dplyr)
+library(XML)
+library(httr)
+```
+
+## Assignment Week 7
+```{r image}
+knitr::include_graphics("C:/Users/para2/Documents/R_Working_Directory/pittsburgh+bridges/Assignment #7 DATA 607/Assignment - Working with XML and JSON in R.png")
+```
+
+
+For this assignment, I needed to create three (3) source files to be imported into R as separate data frames-HTML, JSON, and XML.  The files will be named book.html, book.json, and book.xml and will be located on my GitHub repository under Assignment7.
+
+### Reading in the Files
+
+In this section we will read in the three (3) different file structures, and then set them up individually into their own data frames.  
+
+```{r read ins}
+#JSON read in
+books_json <- fromJSON("https://raw.githubusercontent.com/Aconrard/DATA607/main/Assignment7/books.json")
+#XML read in
+books_xml <- read_xml("https://raw.githubusercontent.com/Aconrard/DATA607/main/Assignment7/books.xml")
+#HTML read in
+books_html <- read_html("https://raw.githubusercontent.com/Aconrard/DATA607/main/Assignment7/Books.html")
+```
+
+### Looking at the Entry
+
+In this section we will take a look at the different frame structures for each of the file types.  We can clearly see that the structures are quite different and will need special handling to make usable.
+
+```{r file structure}
+#JSON
+head(books_json,6)
+#XML
+books_xml
+#HTML
+books_html
+```
+
+
+### A Little Transformation
+
+In this section we are going to alter the data frame structures so that it resembles something that we can transform and analyze.  Luckily, the JSON read in library (jsonlite) is able to bring over the file in a way that allows it to resemble the original table type by using fromJSON.  However, if we used the read_json function in the same package, it would bring the file over as a list that would need to be restructured in the data frame.  For the purposes of this assignment, we will consider the JSON data frame as sufficient and we will move on to the XML and HTML file entries.
+
+Let's look at the HTML file first.  We can see that there is something in the data frame, but it is difficult to see exactly what it is.  The file content is read in and stored as a character string.  However, we would like to have something a little more refined as part of our data frame to be used.  Therefore, we identify the "nodes" of the text to extract the data that we need.  We will also need to extract the variable names.
+
+```{r structure change}
+# th is the node for the table header
+header_text <- books_html |> html_nodes("th") |> html_text()
+# td is the node for the individual table cells
+row_text <- books_html |> html_nodes("td") |> html_text()
+# Identify the number of rows that will be in the dataframe
+num_rows <- length(row_text)/length(header_text)
+# Matrix the data frame and place the values in the cells
+books_html_df <- data.frame(matrix(row_text, ncol = length(header_text), byrow = TRUE))
+# Put the colum variable names back on
+colnames(books_html_df) <- header_text
+head(books_html_df,6)
+```
+
+Now let's look at the XML file.  Once again, the data is stored in what appears to be a structured character string in which we have to extract the data and make it functional for our purposes.  This structure took more work than the others to get it manageable due.
+
+```{r structure change 2}
+# Extract specific XML elements (e.g., <book> elements)
+books <- xml_find_all(books_xml, "//book")
+
+# Create empty lists to store data
+title <- list()
+author <- list()
+topic <- list()
+ISBN <- list()
+num_pages <- list()
+type <- list()
+
+# Loop through each book element
+for (i in seq_along(books)) {
+  # Extract data from XML elements
+  title[i] <- xml_text(xml_find_first(books[i], ".//title"))
+  authors <- xml_find_all(books[i], ".//author")
+  author[i] <- paste(xml_text(authors), collapse = "; ") # Concatenate multiple authors into a single string
+  topic[i] <- xml_text(xml_find_first(books[i], ".//topic"))
+  ISBN[i] <- xml_text(xml_find_first(books[i], ".//ISBN"))
+  num_pages[i] <- xml_text(xml_find_first(books[i], ".//num_pages"))
+  type[i] <- xml_text(xml_find_first(books[i], ".//type"))
+}
+
+# Create a data frame
+books_xml_df <- data.frame(
+  title = unlist(title),
+  author = unlist(author),
+  topic = unlist(topic),
+  ISBN = unlist(ISBN),
+  num_pages = unlist(num_pages),
+  type = unlist(type)
+)
+head(books_xml_df)
+```
+
+### Conclusion
+
+This was a challenging activity since I have very little experience working with these file types or platforms.  The data frame structures are not perfect, but they are functional at this point for further analysis and transformation.
