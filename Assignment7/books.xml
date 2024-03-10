@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+  <book>
+    <title>Descision in Philadelphia: The Constitutional Convention of 1787</title>
+    <authors>
+      <author>
+        <last_name>Collier</last_name>
+        <first_name>Christopher</first_name>
+      </author>
+      <author>
+        <last_name> Collier</last_name>
+        <first_name>James Lincoln</first_name>
+      </author>
+    </authors>
+    <topic>American History</topic>
+    <ISBN>0-345-34652-1</ISBN>
+    <num_pages>434</num_pages>
+    <type>paperback</type>
+  </book>
+  <book>
+    <title>The Mismeasure of Man</title>
+    <authors>
+      <author>
+        <last_name>Gould</last_name>
+        <first_name>Stephen Jay</first_name>
+      </author>
+    </authors>
+    <topic>Non-fiction</topic>
+    <ISBN>978-0-393-31425-0</ISBN>
+    <num_pages>432</num_pages>
+    <type>paperback</type>
+  </book>
+  <book>
+    <title>A Chriostmas Carol and Other Christmas Writings</title>
+    <authors>
+      <author>
+        <last_name>Dickens</last_name>
+        <first_name>Charles</first_name>
+      </author>
+    </authors>
+    <topic>Fiction</topic>
+    <ISBN>978-0-14-043905-2</ISBN>
+    <num_pages>289</num_pages>
+    <type>paperback</type>
+  </book>
+  <book>
+    <title>The Politically Incorrect Guide to American History</title>
+    <authors>
+      <author>
+        <last_name>Woods Jr</last_name>
+        <first_name>Thomas E</first_name>
+      </author>
+    </authors>
+    <topic>Parody</topic>
+    <ISBN>978-089526-047-5</ISBN>
+    <num_pages>270</num_pages>
+    <type>paperback</type>
+  </book>
+  <book>
+    <title>Applied Spatial Statistics for Public Health Data</title>
+    <authors>
+      <author>
+        <last_name>Waller</last_name>
+        <first_name>Lance A.</first_name>
+      </author>
+      <author>
+        <last_name> Gotway</last_name>
+        <first_name>Carol A.</first_name>
+      </author>
+    </authors>
+    <topic>Spatial Statistics</topic>
+    <ISBN>0-471-38771-1</ISBN>
+    <num_pages>494</num_pages>
+    <type>hardcover</type>
+  </book>
+  <book>
+    <title>The Southwest: New American Cooking</title>
+    <authors>
+      <author>
+        <last_name>Long</last_name>
+        <first_name>Kathi</first_name>
+      </author>
+    </authors>
+    <topic>Cooking</topic>
+    <ISBN>0-7370-2047-4</ISBN>
+    <num_pages>144</num_pages>
+    <type>hardcover</type>
+  </book>
+</books>
