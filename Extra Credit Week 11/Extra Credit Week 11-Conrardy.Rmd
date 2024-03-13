@@ -1,0 +1,156 @@
+---
+title: "DATA 607 Extra Credit Week 11-Conrardy"
+author: "Anthony Conrardy"
+date: "2024-03-11"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(dplyr)
+library(lubridate)
+library(ggplot2)
+library(zoo)
+```
+
+## Extra Credit Assignment Week 11
+
+1) Find a dataset that includes time series for two or more separate items.  For example, you could use end of day stock or cryptocurrency prices since Jan 1, 2022 for several instruments.
+
+2) Use window functions (in SQL or dplyr) to calculate the year-to-date average and the six-day moving averages for each item.
+
+3) Present your code in a three to five minute presentation  (or you may make a recording using screen-castomatic or another tool).
+
+### Dataset Selected
+
+The dataset I selected is an Hourly Energy Demand Generation file located on the Kaggle Platform at https://www.kaggle.com/datasets/nicholasjhana/energy-consumption-generation-prices-and-weather?select=energy_dataset.csv
+
+I downloaded the dataset an placed within the GitHub repository for easier access.  It is located at https://github.com/Aconrard/DATA607/tree/main/Extra%20Credit%20Week%2011 
+
+
+```{r cars}
+# Let us read in the data file.
+energy_df <- read.csv("https://raw.githubusercontent.com/Aconrard/DATA607/main/Extra%20Credit%20Week%2011/energy_dataset.csv")
+head(energy_df, 5)
+```
+
+### Tidy and Transform Data
+
+We can see that there are some structural changes that need to be done to this dataset before we are able to start answering the assignment.  The time variable is tracked in hours each day.  For hour purposes, we will only need the date portion of the time variable and then we can aggregate the hourly demand to be a daily demand. We will drop the time variable once the date has been extracted.
+
+There are also a number of categories in this dataset, but we are only going to perform function on these five (5), which include:
+Biomass
+Fossil Brown Coal
+Fossil Gas
+Fossil Hard Coal
+Fossil Oil
+
+It should also be noted that a "0", actually means not production and that "NA" means an absent value.
+
+```{r time change}
+# Strip just the Date and Relocate
+energy_df <- energy_df |> mutate(date_only = as.Date(time)) |> relocate(date_only)
+
+# Select the Variables for 
+energy_df_select <- energy_df |> select(date_only,generation.biomass, generation.fossil.brown.coal.lignite, generation.fossil.hard.coal, generation.fossil.oil, generation.fossil.gas)
+
+
+head(energy_df_select, 5)
+```
+### Extracting Daily Average Electricity Generation for Each Type of Fuel Source
+
+```{r Daily Averages}
+# Biomass
+daily_average_biomass <- energy_df_select |> group_by(date_only) |> summarize(daily_avg_biomass = round(mean(generation.biomass, na.rm = TRUE)))
+# Brown Coal
+daily_average_brown_coal <- energy_df_select |> group_by(date_only) |> summarize(daily_avg_brown_coal = round(mean(generation.fossil.brown.coal.lignite, na.rm = TRUE)))
+# Hard Coal
+daily_average_hard_coal <- energy_df_select |> group_by(date_only) |> summarize(daily_avg_hard_coal = round(mean(generation.fossil.hard.coal, na.rm = TRUE)))
+# Oil
+daily_average_oil <- energy_df_select |> group_by(date_only) |> summarize(daily_avg_oil = round(mean(generation.fossil.oil, na.rm = TRUE)))
+# Gas
+daily_average_gas <- energy_df_select |> group_by(date_only) |> summarize(daily_avg_gas = round(mean(generation.fossil.gas, na.rm = TRUE)))
+
+# Combine all the columns into one frame 
+daily_avgs <- cbind(daily_average_biomass, daily_average_brown_coal[,-1], daily_average_gas[,-1], daily_average_hard_coal[, -1], daily_average_oil[, -1])
+
+```
+
+### Year-to-Date (YTD) Averages
+
+This particular data set runs from 2015 through 2018.  For our purposes we will run from YTD averages for 2017.  We will have to extract the year and day of year from the datasets, and then calculate the YTD averages for the different sources of electricity generation.
+
+
+```{r YTD averages}
+
+# Strip Year and day of year (doy) from date
+daily_avgs <- daily_avgs|> mutate(year = lubridate::year(date_only),
+                    doy = lubridate::yday(date_only)) |> relocate(doy) |> relocate(year)
+
+ytd_avg_2017 <- daily_avgs |> 
+  filter(year==2017) |> 
+  group_by(year,doy) |> 
+  mutate(ytd_avg_biomass = round(cummean(daily_avg_biomass)),
+         ytd_avg_brown_coal = round(cummean(daily_avg_brown_coal)),
+         ytd_avg_gas = round(cummean(daily_avg_gas)),
+         ytd_avg_hard_coal = round(cummean(daily_avg_hard_coal)),
+         ytd_avg_oil = round(cummean(daily_avg_oil))) |> 
+  filter(doy == max(71)) |> 
+  select(year,doy,ytd_avg_biomass, ytd_avg_brown_coal, ytd_avg_gas, ytd_avg_hard_coal, ytd_avg_oil) |> 
+  unique()
+
+knitr::kable(ytd_avg_2017)
+```
+
+### Six Day Moving Average
+
+In this section we will calculate the six(6) moving average for the previously identified fuel sources.  Since we already calculated the daily average for each of the fuel sources, we will apply the moving average to the year of 2017 and report the results in a plot.  We will calculate the six_day averages for each of the fuel sources, but we are going to plot only one example, Biomass.  However, it is similarly done for the other sources.
+
+```{r six_day moving average}
+
+# Biomass Six Day
+daily_average_biomass <-  daily_average_biomass |> filter(format(date_only, "%Y") == "2017") |> 
+  mutate(biomass_six_day = round(zoo::rollmean(daily_avg_biomass, k = 6, fill = NA)))
+
+## Brown Coal Six Day
+daily_average_brown_coal <- daily_average_brown_coal |> filter(format(date_only, "%Y") == "2017") |> 
+  mutate(brown_coal_six_day =round(zoo::rollmean(daily_avg_brown_coal, k = 6, fill = NA)))
+
+## Gas Six Day
+daily_average_gas <- daily_average_gas |> filter(format(date_only, "%Y") == "2017") |> 
+  mutate(gas_six_day =round(zoo::rollmean(daily_avg_gas, k = 6, fill = NA)))
+
+## Hard Coal Six Day
+daily_average_hard_coal <- daily_average_hard_coal |> filter(format(date_only, "%Y") == "2017") |> 
+  mutate(hard_cola_six_day =round(zoo::rollmean(daily_avg_hard_coal, k = 6, fill = NA)))
+
+## Oil Six Day
+daily_average_oil <- daily_average_oil |> filter(format(date_only, "%Y") == "2017") |> 
+  mutate(oil_six_day =round(zoo::rollmean(daily_avg_oil, k = 6, fill = NA)))
+
+# Combine all the columns into one frame 
+six_day_avgs <- cbind(daily_average_biomass, daily_average_brown_coal[,-1], daily_average_gas[,-1], daily_average_hard_coal[, -1], daily_average_oil[, -1])
+
+head(six_day_avgs,5)
+
+```
+
+### ggplot of Biomass Electricity Generation
+```{r plot Six Day}
+ggplot(six_day_avgs, aes(x=date_only , y=biomass_six_day)) +
+  geom_point(na.rm = TRUE) +
+  geom_line(na.rm = TRUE) +
+  geom_smooth(method = "lm", na.rm = TRUE) +
+labs(
+  title = "Biomass Fuel Source Electricity Generation",
+  subtitle = "Six_day Moving Average",
+  x = "Year(2017)",
+  y = "Electricity Generation (MW)"
+)
+
+```
+### Conclusion
+
+I am sure that there are definitely shorter routes to complete what I have done here.  Given enough time I might have found them, but the exercise provided insight into how to frame pipes and functions to get to then end point of what was needed.
