@@ -25,8 +25,8 @@ Due to processing memory limitations, we can only load and process a maximum of 
 
 ```{r spam_ham email load}
 # Identify directory holding the spam and ham files
-spam_dr <- "C:/Users/para2/Documents/R_Working_Directory/Project #4/20050311_spam_2/spam_2"
-ham_dr <-  "C:/Users/para2/Documents/R_Working_Directory/Project #4/20030228_easy_ham_2/easy_ham_2"
+spam_dr <- "20050311_spam_2/spam_2"
+ham_dr <-  "20030228_easy_ham_2/easy_ham_2"
 
 # Get list of files in the directory
 file_list_spam <- list.files(spam_dr, full.names = TRUE)
@@ -138,8 +138,8 @@ In this section we test the classifier against the hard ham data set obtained fr
 
 ```{r Harder Dataset}
 # Identify directory holding the spam and ham files
-spam_dra <- "C:/Users/para2/Documents/R_Working_Directory/Project #4/spam_2a"
-ham_dra <-  "C:/Users/para2/Documents/R_Working_Directory/Project #4/Hard Ham/hard_ham"
+spam_dra <- "spam_2a"
+ham_dra <-  "Hard Ham/hard_ham"
 
 # Get list of files in the directory
 file_list_spama <- list.files(spam_dra, full.names = TRUE)

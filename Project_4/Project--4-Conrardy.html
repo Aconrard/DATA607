@@ -11,7 +11,7 @@
 
 <meta name="author" content="Anthony Conrardy" />
 
-<meta name="date" content="2024-04-14" />
+<meta name="date" content="2024-04-19" />
 
 <title>Project #4-Text and Document Classification</title>
 
@@ -353,7 +353,7 @@ display: none;
 <h1 class="title toc-ignore">Project #4-Text and Document
 Classification</h1>
 <h4 class="author">Anthony Conrardy</h4>
-<h4 class="date">2024-04-14</h4>
+<h4 class="date">2024-04-19</h4>
 
 </div>
 
@@ -373,8 +373,8 @@ This is done by extracting the files into the directory and then
 physically moving 150 messages to each directory. We will also create a
 list of spam and ham email messages for further processing.</p>
 <pre class="r"><code># Identify directory holding the spam and ham files
-spam_dr &lt;- &quot;C:/Users/para2/Documents/R_Working_Directory/Project #4/20050311_spam_2/spam_2&quot;
-ham_dr &lt;-  &quot;C:/Users/para2/Documents/R_Working_Directory/Project #4/20030228_easy_ham_2/easy_ham_2&quot;
+spam_dr &lt;- &quot;20050311_spam_2/spam_2&quot;
+ham_dr &lt;-  &quot;20030228_easy_ham_2/easy_ham_2&quot;
 
 # Get list of files in the directory
 file_list_spam &lt;- list.files(spam_dr, full.names = TRUE)
@@ -534,8 +534,8 @@ obtained from the same location as the previously used data. As before,
 due to processing limitations, we will place 150 spam and 150 harder ham
 email text files into each folder, for a total of 300 text files.</p>
 <pre class="r"><code># Identify directory holding the spam and ham files
-spam_dra &lt;- &quot;C:/Users/para2/Documents/R_Working_Directory/Project #4/spam_2a&quot;
-ham_dra &lt;-  &quot;C:/Users/para2/Documents/R_Working_Directory/Project #4/Hard Ham/hard_ham&quot;
+spam_dra &lt;- &quot;spam_2a&quot;
+ham_dra &lt;-  &quot;Hard Ham/hard_ham&quot;
 
 # Get list of files in the directory
 file_list_spama &lt;- list.files(spam_dra, full.names = TRUE)
