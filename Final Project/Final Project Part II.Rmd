@@ -1,0 +1,163 @@
+---
+title: "DATA 607 Final Project-Part II"
+author: "Anthony Conrardy"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE, warning=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(kableExtra)
+library(readxl)
+library(tidytext)
+library(rvest)
+library(readtext)
+library(openxlsx)
+library(ggplot2)
+```
+
+## Introduction
+
+In Part II of the this final project, we will import the sterilized data sets from Part I that are located on the GitHub repository in the locations below.  We will then merge the data sets into a unified set containing the required elements for further investigation and analysis.  We will rename the variables to be something easier to work with, reorder the variables in the data frame, and create a survey_total variable.  While the original proposal was to analyze the student sentiment in the survey comments, after importing and reviewing the data it became quickly apparent that the students did not avail themselves of the opportunity to provide reasonable commentary for us to undertake that analysis.  Instead, I chose to analyze the number of clinical experiences the students participated against their scores on the program final examination.  I also chose to look at the average survey scores for each of the clinical rotations the students participated with the overall examination score.  Therefore, my hypotheses for this assignment are the following:
+
+H1: The number of clinical experiences required to meet the ten (10) patient threshold correlated with student performance on the program final examination.
+
+H2: The average survey score evaluating the clinical experience is correlated with student performance on the program final examination.
+
+```{r Data Import}
+#  Pull in the data sets from the GitHub Repository
+clinical_file <- "https://raw.githubusercontent.com/Aconrard/DATA607/main/Final%20Project/clinical.csv"
+clinical_eval <- read.csv(clinical_file)
+clinical_eval <- clinical_eval |> filter(!is.na(anon_id))
+
+testing_file <- "https://raw.githubusercontent.com/Aconrard/DATA607/main/Final%20Project/testing.csv"
+testing_results <- read.csv(testing_file)
+testing_results <- testing_results |> filter(!is.na(anon_id))
+
+# Match data sets on unique anonymous identifier
+merged_df <- merge(clinical_eval, testing_results, by = "anon_id")
+
+# Duplicate Check and Removal
+duplicates <- merged_df$Submission_ID[duplicated(merged_df$Submission_ID)]
+merged_df <- distinct(merged_df,Submission_ID, .keep_all = TRUE)
+
+selected_data <- merged_df |> 
+  filter(!is.na(final_exam) & !is.na(anon_id)) |> 
+  select(anon_id, everything(), final_exam, final_exam_retest) |> 
+  rename(Orientation = Appropriate.Orientation.by.your.Preceptor.,
+         Adequate = Adequate.Supervision.on.Ambulance.,
+         Responsibility = Responsibilities.clearly.defined.by.your.Preceptor.,
+         Hot_wash = The.hot.wash.afforded.me.the.opportunity.to.discuss.the.patient.encounter.,
+         Preceptors = Preceptors.responsiveness.to.clinical.questionsby.student.,
+         Objectives = Educational.objectives.accomplished.,
+         Incorporated = Incorporated.as.member.of.crew.,
+         Overall = Overall.educational.experience., 
+         Submission_ID = Submission_ID,
+         Submission_Date = Submission.Date) |> 
+  select(anon_id, 
+         Submission_ID, 
+         Submission_Date, 
+         final_exam, 
+         final_exam_retest, 
+         Orientation, 
+         Responsibility,
+         Adequate,
+         Preceptors,
+         Hot_wash,
+         Incorporated,
+         Objectives,
+         Overall)
+selected_data$survey_total <- rowSums(selected_data[, (ncol(selected_data) - 7): ncol(selected_data)], 
+                                      na.rm = TRUE)
+
+# Remove any observations where the survey total equals zero
+selected_data1 <- selected_data |> filter(survey_total > 0)
+```
+
+## Tidy and Transform
+
+In this section we will once again tidy the data set and create some additional variables we want to use in the analysis.  First, we will count the number of clinical experiences each student participated in and then put that into the existing data frame.  We will then calculate the average survey rating of the clinical experience by each student.  Each student was required to have at least ten (10) patient encounters.  Some students were able to get that on one clinical rotation, and for others took several.  For our purposes we felt the average of the number of survey totals was the fairest way to include it in our analysis.  We perform those calculations and  put them into the data frame with the other variables of interest.  Finally, we extract the variables we will use for our analysis, which include anon_id(unique identifier), number_clinical (number of rotations), survey_average (average total of all surveys completed), and final exam score.  We will call that data frame "summary_df".
+
+```{r tidy and transform}
+# Count Clinicals for Each Participant
+selected_data_count <- selected_data1 |> 
+  count(anon_id) |> 
+  rename(number_clinical = n)
+
+# Assign back to the original data frame
+selected_data_final <- left_join(selected_data1, selected_data_count, by = "anon_id")
+
+# Calculate sum of all surveys completed by the participant
+selected_data_final <- selected_data_final |> 
+  group_by(anon_id) |> 
+  mutate(total_survey = sum(survey_total)) |>
+  ungroup()
+
+# Average the sum of all surveys by the number fo clinical experiences completed.
+selected_data_final <- selected_data_final |> 
+  group_by(anon_id) |> 
+  mutate(survey_average = total_survey/number_clinical) |> 
+  ungroup()
+
+# Create the summary data frame with the necessary variables
+summary_df <- selected_data_final |> 
+  group_by(anon_id) |> 
+  summarize(final_exam = first(final_exam),
+             number_clinical = first(number_clinical),
+             survey_average = first(survey_average)) |> 
+  ungroup()
+summary_df
+```
+
+## Graphic Presentation
+
+We provide three (3) plots to sense if there is indeed a direction associated with the number of clinical rotations and/or the survey_average.  While the number of clinical experiences appear to increase the possibility of a higher exam score, the survey average evaluating the clinical experience seems to be not related with performance on the examination.  However, we will conduct a linear regression to see if anything mathematically comes out of the analysis.
+
+```{r pressure, echo=FALSE}
+# Create the ggplots
+ggplot(summary_df, aes(x = number_clinical, y = final_exam)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Number of Clinicals", y = "Final Exam Score") +  
+  ggtitle("Number of Clinicals vs. Final Exam Score")
+
+ggplot(summary_df, aes(x = factor(number_clinical), y = final_exam, fill = factor(number_clinical))) +
+  geom_boxplot() +
+  labs(x = "Number of Clinicals", y = "Exam Score", fill = "Number of Clinicals") +
+  ggtitle("Boxplot of Exam Score by Number of Clinicals") +
+  theme_minimal() 
+
+ggplot(summary_df, aes(x = survey_average, y = final_exam))+
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Survey Average", y = "Final Exam Score") +
+  ggtitle("Survey Average vs. Final Exam Score")
+
+```
+
+
+## Statistical Analysis
+
+We ran four (4) models for this analysis.  In the first model (full), we included both the survey average, number of clinicals, and an interaction term because a true average would be the result of one or more clinical experiences.  Therefore, it would make senses to include that for possible confounding.  The second model did not include the interaction term, and the third and fourth models were simple univariate regressions.  The results are provided below:
+
+```{r regression}
+Model_1 <- lm(final_exam ~ survey_average + number_clinical, data = summary_df)
+summary(Model_1)
+
+Model_2 <- lm(final_exam ~ survey_average + number_clinical + (survey_average * number_clinical), 
+              data = summary_df)
+summary(Model_2)
+
+Model_3 <- lm(final_exam ~ number_clinical, data = summary_df)
+summary(Model_3)
+
+Model_4 <- lm(final_exam ~ survey_average, data = summary_df)
+summary(Model_4)
+```
+
+## Discussion and Conclusion
+
+While there appears to be an upward trend associated with the number of clinical experiences and performance on the examination, it does not appear to be statistically significant.  The survey average neither seems to be visually, nor statistically, related to performance on the written examination.  As a significant point, it appears the students may simply "whip" responses on the survey with little interest in providing reliable information for analysis. Also, while the clinical evaluation data set has 1378 observations, only 150 of them were associated with the test results data set we retrieved from the Platinum Education Group.  The 150 evaluations were associated with only 61 students, and  that number may simply be too small to provide statistical evidence for a correlation with examination performance.  Also, the R-squared and adjusted R-square for the models were poor, indicating that the variance in the exam performance is not sufficiently explained by the independent variables.  At this time, we can draw no conclusions as to whether student performance on the written comprehensive examination is correlated with the number of clinical rotations by the student, or the average rating of the clinical experience provided by the student on the survey.  Additional research could attempt to construct a larger data set of testing results to compare sufficient numbers of student in each subgroup of clinical numbers to test for significance.
