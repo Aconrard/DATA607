@@ -3,8 +3,8 @@ title: "DATA 607 Final Project-Part II"
 author: "Anthony Conrardy"
 date: "`r Sys.Date()`"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE, warning=FALSE}
@@ -124,11 +124,23 @@ ggplot(summary_df, aes(x = number_clinical, y = final_exam)) +
   labs(x = "Number of Clinicals", y = "Final Exam Score") +  
   ggtitle("Number of Clinicals vs. Final Exam Score")
 
+P1 <- ggplot(summary_df, aes(x = number_clinical, y = final_exam)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Number of Clinicals", y = "Final Exam Score") +  
+  ggtitle("Number of Clinicals vs. Final Exam Score")
+
 ggplot(summary_df, aes(x = factor(number_clinical), y = final_exam, fill = factor(number_clinical))) +
   geom_boxplot() +
   labs(x = "Number of Clinicals", y = "Exam Score", fill = "Number of Clinicals") +
   ggtitle("Boxplot of Exam Score by Number of Clinicals") +
   theme_minimal() 
+
+P2 <-ggplot(summary_df, aes(x = factor(number_clinical), y = final_exam, fill = factor(number_clinical))) +
+  geom_boxplot() +
+  labs(x = "Number of Clinicals", y = "Exam Score", fill = "Number of Clinicals") +
+  ggtitle("Boxplot of Exam Score by Number of Clinicals") +
+  theme_minimal()  
 
 ggplot(summary_df, aes(x = survey_average, y = final_exam))+
   geom_point() +
@@ -136,6 +148,15 @@ ggplot(summary_df, aes(x = survey_average, y = final_exam))+
   labs(x = "Survey Average", y = "Final Exam Score") +
   ggtitle("Survey Average vs. Final Exam Score")
 
+P3 <- ggplot(summary_df, aes(x = survey_average, y = final_exam))+
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  labs(x = "Survey Average", y = "Final Exam Score") +
+  ggtitle("Survey Average vs. Final Exam Score")
+
+ggsave("plot1.png", P1)
+ggsave("plot2.png", P2)
+ggsave("plot3.png", P3)
 ```
 
 
